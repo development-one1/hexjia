@@ -20,7 +20,7 @@ function App() {
             <a href="https://development-one1.github.io/felipe_sofware/" target="_blank">
               <img src={fd} className="logo" alt="felipe develop" />
             </a>
-            <h1 className="texto">Felipe_Develop</h1> 
+            <h1 className="texto">HEXJIA</h1> 
           </div> 
           
         </div>
