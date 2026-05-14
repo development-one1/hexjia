@@ -1,0 +1,115 @@
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 10%;
+
+  background: rgba(11, 16, 32, 0.75);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  /* 🔥 NAVBAR PEGADO */
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 999;
+}
+
+/* LINKS */
+
+.navbar a {
+  color: white;
+
+  margin-left: 20px;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00d4ff;
+}
+
+/* LOGO */
+
+.logo {
+  font-size: 1.5rem;
+
+  font-weight: bold;
+
+  color: #00d4ff;
+}
+
+.hex {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+
+/* ESPACIO PARA QUE EL HERO NO QUEDE TAPADO */
+
+body {
+  padding-top: 90px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 18px 6%;
+  }
+
+  .navbar nav {
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+  }
+
+  .navbar a {
+    margin-left: 0;
+
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+  .navbar nav {
+    justify-content: center;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+}

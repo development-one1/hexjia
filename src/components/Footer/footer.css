@@ -1,0 +1,162 @@
+/* FOOTER */
+
+.footer {
+  background: #0b1020;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 60px 10% 30px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* EFECTO DECORATIVO */
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  background: #00d4ff;
+
+  filter: blur(180px);
+
+  opacity: 0.08;
+
+  bottom: -200px;
+  right: -150px;
+
+  border-radius: 50%;
+}
+
+/* CONTENIDO */
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 40px;
+
+  flex-wrap: wrap;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* LOGO */
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 800;
+
+  color: white;
+}
+
+.footer-logo span {
+  color: #00d4ff;
+}
+
+/* TEXTO */
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.7);
+
+  line-height: 1.7;
+
+  max-width: 450px;
+}
+
+/* LINKS */
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00d4ff;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom {
+  margin-top: 50px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.95rem;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .footer-content {
+    gap: 30px;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 6% 25px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-text {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+}

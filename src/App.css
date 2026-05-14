@@ -1,228 +1,172 @@
 /* ==========================
-   Global Styles
-   ========================== */
-   html, body {
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
-  }
-  
-  * {
-    box-sizing: border-box; /* Asegura que el padding y border no afecten el tamaño */
-  }
-  
-  /* ==========================
-     Layout Containers
-     ========================== */
-  .container {
-    background-color: white;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px; /* Añadir algo de padding para que no esté pegado a los bordes */
-  }
-  
-  .container .content {
-    width: 100%;
-    max-width: 1200px; /* Limita el ancho máximo */
-    margin: 0 auto;
-  }
-  
-  /* ==========================
-     Icono Styling
-     ========================== */
+   GLOBAL RESET
+========================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ==========================
+   HEADER / ICONO
+========================== */
+
+.icono {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icono .logo {
+  height: 150px;
+  object-fit: contain;
+}
+
+.icono .texto {
+  color: black;
+  font-family: monospace;
+}
+
+/* ==========================
+   SOCIAL
+========================== */
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card {
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* imágenes */
+.card-image,
+.pokemons {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* textos */
+.card-title {
+  color: #888;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ==========================
+   ANIMACIÓN TEXTO
+========================== */
+
+.texto {
+  overflow: hidden;
+  white-space: nowrap;
+  width: fit-content;
+  animation: typing 5s steps(50, end) forwards;
+  font-family: monospace;
+  color: black;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ==========================
+   RESPONSIVE (SOLO 2 BREAKPOINTS)
+========================== */
+
+/* TABLET + MOBILE */
+@media (max-width: 768px) {
+
   .icono {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-right: 10px;
-    position: relative;
-    height: auto;
-    width: auto;
+    flex-direction: column;
+    text-align: center;
   }
-  
+
   .icono .logo {
-    height: 150px;
-    padding: 2px;
-    transition: filter 800ms;
+    height: 100px;
   }
-  
-  .icono .texto {
-    color: black;
-    margin-left: 10px;
-    margin-top: auto;
-  }
-  
-  /* ==========================
-     Social Links Styling
-     ========================== */
+
   .social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-    max-width: 92%;
-    height: auto;
+    flex-direction: column;
   }
-  
-  /* ==========================
-     Card & Image Styling
-     ========================== */
+
   .card {
-    padding: 2em;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease; /* Transición suave */
+    padding: 1em;
   }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
+
+  .texto {
+    font-size: 1.2rem;
+    white-space: normal;
   }
-  
-  .card-title {
-    color: #888;
-  }
-  
-  .card-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-  
-  .pokemons {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-  
-  .platzi-experiencia {
-    text-align: left;
-  }
-  
-  .read-the-docs {
-    color: #888;
-  }
-  
-  .box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px;
-  }
-  
-  /* ==========================
-     Footer Styling
-     ========================== */
-     footer {
-      width: 100%; /* Asegura que ocupe todo el ancho de la página */
-      background-color: black;
-      text-align: center;
-      color: #fff;
-      padding: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative; /* Para que no se quede pegado al fondo si no hay contenido suficiente */
-      margin-top: auto; /* Empuja el footer hacia abajo en caso de que haya poco contenido */
-    }
-  
-  footer p {
-    margin: 0;
+}
+
+/* MOBILE PEQUEÑO */
+@media (max-width: 480px) {
+
+  .texto {
     font-size: 1rem;
   }
-  
-  /* ==========================
-     Typing Animation
-     ========================== */
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-  
-    to {
-      width: 100%;
-    }
+
+  footer {
+    padding: 1.2em;
   }
-  
-  .texto {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    max-width: fit-content;
-    animation: typing 5s steps(50, end) forwards;
-    color: black;
-    font-family: monospace;
-    position: relative;
-  }
-  
-  /* ==========================
-     Responsive Design
-     ========================== */
-  
-  /* For screens less than 768px (mobile/tablet) */
-  @media (max-width: 768px) {
-    html, body {
-      padding: 10px;
-    }
-  
-    .icono {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .icono .logo {
-      max-height: 100%;
-    }
-  
-    .texto {
-      font-size: 1.2rem;
-    }
-  
-    .social {
-      flex-direction: column; /* Apila los iconos en pantallas más pequeñas */
-      margin-top: 20px;
-    }
-  
-    .card {
-      padding: 1em;
-    }
-  
-    .card-image {
-      width: auto;
-    }
-  
-    .col-xs-2 {
-      width: auto; /* Apilar columnas */
-    }
-  }
-  
-  /* For screens less than 480px (small screens) */
-  @media (max-width: 480px) {
-    .texto {
-      font-size: 1rem;
-    }
-  
-    footer {
-      padding: 1.5em 0.5em;
-    }
-  }
-  
-  /* For screens between 480px and 708px (smaller devices) */
-  @media (max-width: 708px) {
-    .program-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .wordle-container {
-      margin-left: 0;
-      margin-top: 20px;
-    }
-  }
-  
+}

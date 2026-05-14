@@ -1,0 +1,182 @@
+/* SHOWCASE SECTION */
+
+.showcase {
+  padding: 100px 10%;
+
+  background: linear-gradient(
+    180deg,
+    #0b1020 0%,
+    #111936 100%
+  );
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* EFECTO DECORATIVO */
+
+.showcase::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  background: #00d4ff;
+
+  filter: blur(220px);
+
+  opacity: 0.08;
+
+  right: -200px;
+  top: -100px;
+
+  border-radius: 50%;
+}
+
+/* TÍTULO */
+
+.showcase h2 {
+  font-size: 3rem;
+
+  color: white;
+
+  text-align: center;
+
+  margin-bottom: 70px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* TARJETAS */
+
+.project {
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 24px;
+
+  min-height: 280px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: white;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.35s ease;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+/* EFECTO HOVER */
+
+.project:hover {
+  transform: translateY(-10px);
+
+  border-color: #00d4ff;
+
+  box-shadow: 0 20px 45px rgba(0, 212, 255, 0.18);
+}
+
+/* LÍNEA BRILLO */
+
+.project::before {
+  content: "";
+
+  position: absolute;
+
+  width: 200%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00d4ff,
+    transparent
+  );
+
+  top: 0;
+  left: -100%;
+
+  transition: 0.6s;
+}
+
+.project:hover::before {
+  left: 100%;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase {
+    padding: 70px 6%;
+  }
+
+  .showcase h2 {
+    font-size: 2.3rem;
+
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    min-height: 220px;
+
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase h2 {
+    font-size: 2rem;
+  }
+
+  .project {
+    min-height: 180px;
+
+    border-radius: 18px;
+
+    font-size: 1rem;
+  }
+}

@@ -1,73 +1,23 @@
-import pokemons from './assets/pokemons.png';
-import fd from './assets/fd.jpg';
+import Navbar from "./components/Navbar/navbar";
+import Hero from "./components/Hero/hero";
+import Features from "./components/Features/features";
+import Showcase from "./components/Showcase/showcase";
+import Footer from "./components/Footer/footer";
 
-import './App.css';
-import './components/Wordle/We.css'
-import SocialMedia from './components/Social/SocialMedia';
-import Program from './components/Code/Program';
 import Watsapp from './components/Ws/Watsapp';
-import Wordle from './components/Wordle/Wordle';
 
+import "./styles/global.css";
 
-
-function App() {
-
+export default function App() {
   return (
     <>
-    <navbar>
-      <div className="container">
-          <div className="icono">
-            <a href="https://development-one1.github.io/felipe_sofware/" target="_blank">
-              <img src={fd} className="logo" alt="felipe develop" />
-            </a>
-            <h1 className="texto">HEXJIA</h1> 
-          </div> 
-          
-        </div>
-        <div>
-            <SocialMedia />
-        </div>
-    </navbar>
-    
-      <br />
-      
+  <Navbar />
+  <Hero />
+  <Features />
+  <Showcase />
+  <Footer />
 
-      <header>
-          <div>
-            <Program />     
-          </div>
-        <div className='wordle-container'>
-           <Wordle /> 
-        </div>
-      </header>
-
-      <br />
-      
-      <section>
-        <div className="card"> {/* Aquí se usa la clase 'card' */}
-          <p className="read-the-docs">
-            Portafolio
-          </p>
-          <div className="platzi-experiencia">
-            <a href="https://github.com/development-one1/pokemons-redux/">
-              <img 
-                className="pokemons"
-                src={pokemons} 
-                alt="pokemons" 
-              />
-            </a>
-          </div>
-        </div>
-      </section>
-
-    <Watsapp />
-      <br />
-
-      <footer>
-        <p>&copy; 2025 Felipe_develop. Todos los derechos reservados.</p>
-      </footer>
-    </>
+  <Watsapp />
+</>
   );
 }
-
-export default App;

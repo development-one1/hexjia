@@ -1,9 +1,0 @@
-.wordle-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 100px;
-    margin-left: 15px; /* Asegura que esté a la izquierda */
-    gap: 30px; /* Espacio entre los iconos */
-  }
