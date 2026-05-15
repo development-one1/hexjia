@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="logo">
-        <img src={icono} alt="HEXJIA logo" className="hex" /> HEX<span>JIA</span>
+        <img src={icono} alt="HEXJIA logo" className="hex" /> <span className="exx">HEX</span><span className="jia">JIA</span>
       </div>
 
       <nav>
