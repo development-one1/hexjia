@@ -12,8 +12,8 @@ export default function BackgroundNet() {
       el: ref.current,
       THREE: THREE,
 
-      color: 0x2c3187,
-      backgroundColor: 0x0b1020,
+       color: 0x00d4ff,
+      backgroundColor: 0x000000,
 
       points: 19,
       maxDistance: 10.00,
