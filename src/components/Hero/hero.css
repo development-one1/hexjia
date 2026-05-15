@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 /* HERO SECTION */
 
 .hero {
@@ -71,10 +73,19 @@
 
   border-right: 2px solid #00d4ff;
 
-   animation:
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00d4ff;
+
+  animation:
     typing 5s steps(30, end) infinite,
     blink 0.8s infinite;
 }
+
+  .subtitulo {
+    font-family: "Space Grotesk", sans-serif;
+  }
 
 @keyframes typing {
   0% {
