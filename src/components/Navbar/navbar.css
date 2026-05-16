@@ -7,14 +7,14 @@
 
   padding: 20px 10%;
 
-  background: transparent;
+  background: rgba(11, 16, 32, 0.55);
 
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
-  /* 🔥 NAVBAR PEGADO */
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  
   position: fixed;
 
   top: 0;

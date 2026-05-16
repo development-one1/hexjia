@@ -1,25 +1,30 @@
-/* FOOTER */
+/* ==========================
+   FOOTER PREMIUM - HEXJIA
+========================== */
 
 .footer {
-  background: #0b1020;
+  position: relative;
+  overflow: hidden;
+
+  background: transparent;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  padding: 60px 10% 30px;
-
-  position: relative;
-  overflow: hidden;
+  backdrop-filter: blur(12px);
 }
 
-/* EFECTO DECORATIVO */
+/* ==========================
+   GLOW EFFECT
+========================== */
 
-.footer::before {
-  content: "";
-
+.footer-glow {
   position: absolute;
 
-  width: 400px;
-  height: 400px;
+  width: 520px;
+  height: 520px;
+
+  right: -220px;
+  bottom: -250px;
 
   background: #00d4ff;
 
@@ -27,136 +32,233 @@
 
   opacity: 0.08;
 
-  bottom: -200px;
-  right: -150px;
-
   border-radius: 50%;
+
+  pointer-events: none;
 }
 
-/* CONTENIDO */
+/* ==========================
+   CONTAINER
+========================== */
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 40px;
-
-  flex-wrap: wrap;
-
+.footer-container {
   position: relative;
   z-index: 2;
+
+  display: flex;
+  justify-content: center;
 }
 
-/* LOGO */
+/* ==========================
+   BRAND CONTENT
+========================== */
 
-.footer-logo {
-  font-size: 2rem;
-  font-weight: 800;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  color: white;
+  text-align: center;
+
+  max-width: 760px;
 }
 
-.footer-logo span {
+/* ==========================
+   LOGO
+========================== */
+
+
+
+.footer-mini-logo span {
   color: #00d4ff;
 }
 
-/* TEXTO */
+/* ==========================
+   DESCRIPTION
+========================== */
 
-.footer-text {
-  color: rgba(255, 255, 255, 0.7);
+.footer-description {
+  color: rgba(255, 255, 255, 0.72);
 
-  line-height: 1.7;
+  font-size: 1.05rem;
 
-  max-width: 450px;
+  line-height: 1.9;
+
+  max-width: 650px;
 }
 
-/* LINKS */
+/* ==========================
+   BADGES
+========================== */
 
-.footer-links {
+.footer-badges {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 32px;
 }
 
-.footer-links a {
-  color: rgba(255, 255, 255, 0.75);
+.footer-badges span {
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 0.9rem;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.25s ease;
+}
+
+.footer-badges span:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+/* ==========================
+   CTA
+========================== */
+
+.footer-cta {
+  margin-top: 34px;
+
+  padding: 14px 26px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(0, 212, 255, 0.22);
+
+  background: rgba(0, 212, 255, 0.04);
+
+  color: #00d4ff;
 
   text-decoration: none;
 
-  transition: 0.3s ease;
+  font-weight: 600;
+
+  transition: 0.25s ease;
 }
 
-.footer-links a:hover {
-  color: #00d4ff;
+.footer-cta:hover {
+  transform: translateY(-2px);
+
+  background: rgba(0, 212, 255, 0.08);
+
+  border-color: rgba(0, 212, 255, 0.4);
 }
 
-/* COPYRIGHT */
+/* ==========================
+   BOTTOM
+========================== */
 
 .footer-bottom {
-  margin-top: 50px;
+  position: relative;
+  z-index: 2;
 
-  padding-top: 25px;
+  margin-top: 70px;
+  padding-top: 28px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
   text-align: center;
-
-  color: rgba(255, 255, 255, 0.5);
-
-  font-size: 0.95rem;
-
-  position: relative;
-  z-index: 2;
 }
 
-/* RESPONSIVE */
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.46);
+
+  font-size: 0.92rem;
+
+  line-height: 1.7;
+}
+
+/* ==========================
+   TABLET
+========================== */
 
 @media (max-width: 992px) {
-  .footer-content {
-    gap: 30px;
+  .footer {
+    padding: 85px 8% 30px;
   }
 
-  .footer-logo {
-    font-size: 1.8rem;
+  .footer-description {
+    max-width: 580px;
   }
 }
+
+/* ==========================
+   MOBILE
+========================== */
 
 @media (max-width: 768px) {
   .footer {
-    padding: 50px 6% 25px;
+    padding: 75px 7% 28px;
   }
 
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
+  .footer-logo {
+    margin-bottom: 18px;
   }
 
-  .footer-text {
-    max-width: 100%;
+  .footer-description {
+    font-size: 0.96rem;
+
+    line-height: 1.8;
   }
 
-  .footer-links {
-    justify-content: center;
+  .footer-badges {
+    gap: 10px;
+  }
+
+  .footer-badges span {
+    font-size: 0.84rem;
+
+    padding: 9px 15px;
+  }
+
+  .footer-cta {
+    font-size: 0.95rem;
   }
 
   .footer-bottom {
-    margin-top: 40px;
-    font-size: 0.9rem;
+    margin-top: 55px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.84rem;
   }
 }
 
+/* ==========================
+   SMALL MOBILE
+========================== */
+
 @media (max-width: 480px) {
-  .footer-logo {
-    font-size: 1.5rem;
+  .footer {
+    padding: 65px 6% 25px;
   }
 
-  .footer-links {
-    flex-direction: column;
-    gap: 12px;
+  .footer-description {
+    font-size: 0.92rem;
   }
 
-  .footer-bottom {
+  .footer-badges {
+    justify-content: center;
+  }
+
+  .footer-badges span {
+    width: fit-content;
+  }
+
+  .footer-bottom p {
     font-size: 0.8rem;
   }
 }
