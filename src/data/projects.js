@@ -5,7 +5,7 @@ export const projects = [
     img: logo,
     tag: "Software a medida",
     title: "Sistema de gestión de reservas",
-    desc: "Plataforma móvil para reservas de servicios con pagos, geolocalización y panel de administración.",
+    desc: "App móvil de reservas de servicios con pagos integrados, geolocalización y panel de administración para Android e iOS.",
     tech: "Flutter · Firebase",
   },
   {
