@@ -1,5 +1,7 @@
 import "../Showcase/showcase.css";
 
+import { projects } from "../../data/projects";
+
 export default function Showcase() {
   return (
     <section className="showcase" id="proyectos">
@@ -11,55 +13,27 @@ export default function Showcase() {
       </p>
 
       <div className="grid">
+        {projects.map((project, index) => (
+          <div className="project" key={index}>
 
-        {/* PROJECT 1 */}
-        <div className="project">
-          <div className="tag">Software a medida</div>
+            {project.img && (
+              <img
+                src={project.img}
+                alt={project.title}
+                className="project-img"
+                loading="lazy"
+              />
+            )}
 
-          <h3>Sistema de gestión de reservas</h3>
+            <div className="tag">{project.tag}</div>
 
-          <p>
-            Plataforma móvil para reservas de servicios con pagos, geolocalización
-            y panel de administración.
-          </p>
+            <h3>{project.title}</h3>
 
-          <div className="meta">
-            Flutter · Firebase
+            <p>{project.desc}</p>
+
+            <div className="meta">{project.tech}</div>
           </div>
-        </div>
-
-        {/* PROJECT 2 */}
-        <div className="project">
-          <div className="tag">Inteligencia Artificial</div>
-
-          <h3>Plataforma de análisis de negocio con IA</h3>
-
-          <p>
-            Dashboard inteligente para análisis de datos y automatización de decisiones
-            operativas.
-          </p>
-
-          <div className="meta">
-            React · OpenAI API
-          </div>
-        </div>
-
-        {/* PROJECT 3 */}
-        <div className="project">
-          <div className="tag">Automatización</div>
-
-          <h3>CRM automatizado de ventas</h3>
-
-          <p>
-            Sistema de seguimiento de leads con flujos automáticos de contacto,
-            clasificación y conversión.
-          </p>
-
-          <div className="meta">
-            Make · APIs
-          </div>
-        </div>
-
+        ))}
       </div>
 
       {/* TRUST SECTION */}
@@ -79,7 +53,6 @@ export default function Showcase() {
             Descubrimiento → Diseño → Desarrollo → Escalado
           </p>
         </div>
-
       </div>
     </section>
   );
