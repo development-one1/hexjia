@@ -1,143 +1,162 @@
-/* SHOWCASE SECTION */
+/* =========================
+   SHOWCASE SECTION (HIGH TICKET)
+========================= */
 
 .showcase {
-  padding: 100px 10%;
-
-  background: linear-gradient(
-    180deg,
-    #0b1020 0%,
-    #111936 100%
-  );
+  padding: 120px 10%;
+  
 
   position: relative;
-
   overflow: hidden;
 }
 
-/* EFECTO DECORATIVO */
-
+/* SOFT GLOW BACKGROUND */
 .showcase::before {
   content: "";
-
   position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  background: #00d4ff;
-
-  filter: blur(220px);
-
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #00d4ff 0%, transparent 70%);
+  filter: blur(160px);
   opacity: 0.08;
-
-  right: -200px;
-  top: -100px;
-
+  right: -250px;
+  top: -200px;
   border-radius: 50%;
 }
 
-/* TÍTULO */
+/* =========================
+   TITLE (HIGH IMPACT)
+========================= */
 
 .showcase h2 {
-  font-size: 3rem;
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 
-  color: white;
-
+  color: #ffffff;
   text-align: center;
 
-  margin-bottom: 70px;
+  margin-bottom: 18px;
 
   position: relative;
-
   z-index: 2;
 }
 
-/* GRID */
+/* SUBTITLE (esto te sube nivel high ticket) */
+.showcase .subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 70px auto;
+  line-height: 1.6;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
 
 .grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
-  gap: 30px;
-
+  gap: 28px;
   position: relative;
-
   z-index: 2;
 }
 
-/* TARJETAS */
+/* =========================
+   PROJECT CARD (PREMIUM)
+========================= */
 
 .project {
-  background: rgba(248, 248, 248, 0.04);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
 
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
 
-  border-radius: 24px;
-
-  min-height: 280px;
+  padding: 32px;
+  min-height: 260px;
 
   display: flex;
-
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 10px;
 
-  text-align: center;
+  color: #ffffff;
 
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  color: white;
-
-  backdrop-filter: blur(10px);
-
-  transition: 0.35s ease;
-
-  cursor: pointer;
-
-  overflow: hidden;
+  backdrop-filter: blur(14px);
 
   position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* EFECTO HOVER */
+/* TITLE INSIDE CARD */
+.project h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* DESCRIPTION */
+.project p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* TECH STACK */
+.project span {
+  font-size: 0.85rem;
+  color: rgba(0, 212, 255, 0.9);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* =========================
+   HOVER (SOFT LUXURY EFFECT)
+========================= */
 
 .project:hover {
   transform: translateY(-10px);
-
-  border-color: #00d4ff;
-
-  
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.08);
 }
 
-/* LÍNEA BRILLO */
-
+/* TOP LIGHT SWEEP */
 .project::before {
   content: "";
-
   position: absolute;
-
-  width: 200%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00d4ff,
-    transparent
-  );
+  width: 180%;
+  height: 1px;
 
   top: 0;
   left: -100%;
 
-  transition: 0.6s;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.8),
+    transparent
+  );
+
+  transition: 0.7s ease;
 }
 
 .project:hover::before {
   left: 100%;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 1100px) {
   .grid {
@@ -147,23 +166,21 @@
 
 @media (max-width: 768px) {
   .showcase {
-    padding: 70px 6%;
+    padding: 80px 6%;
   }
 
   .showcase h2 {
-    font-size: 2.3rem;
-
-    margin-bottom: 50px;
+    font-size: 2.4rem;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .project {
     min-height: 220px;
-
-    font-size: 1.2rem;
+    padding: 26px;
   }
 }
 
@@ -172,11 +189,7 @@
     font-size: 2rem;
   }
 
-  .project {
-    min-height: 180px;
-
-    border-radius: 18px;
-
-    font-size: 1rem;
+  .showcase .subtitle {
+    font-size: 0.95rem;
   }
 }
