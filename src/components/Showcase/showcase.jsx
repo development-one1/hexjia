@@ -37,23 +37,7 @@ export default function Showcase() {
       </div>
 
       {/* TRUST SECTION */}
-      <div className="trust">
-        <h3>Tecnología de nivel empresarial</h3>
-
-        <div className="logos">
-          <span>Firebase</span>
-          <span>AWS</span>
-          <span>Flutter</span>
-          <span>OpenAI</span>
-        </div>
-
-        <div className="process">
-          <h4>Metodología</h4>
-          <p>
-            Descubrimiento → Diseño → Desarrollo → Escalado
-          </p>
-        </div>
-      </div>
+      
     </section>
   );
 }
