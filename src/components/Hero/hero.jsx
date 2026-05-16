@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
 
         <p className="subtitulo">
-          Diseñamos estrategias, marcas y sistemas que hacen crecer tu negocio.
+          Diseñamos software, automatizaciones y estrategias digitales para empresas que quieren escalar, reducir trabajo manual y aumentar ingresos con tecnología real.
         </p>
 
         <div className="buttons">
