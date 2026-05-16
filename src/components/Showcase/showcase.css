@@ -69,7 +69,7 @@
 /* TARJETAS */
 
 .project {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(248, 248, 248, 0.04);
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -107,7 +107,7 @@
 
   border-color: #00d4ff;
 
-  box-shadow: 0 20px 45px rgba(0, 212, 255, 0.18);
+  
 }
 
 /* LÍNEA BRILLO */
