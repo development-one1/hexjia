@@ -8,7 +8,7 @@ export default defineConfig({
 
   build: {
     sourcemap: false,   // ❌ evita ver código original
-    minify: 'terser',   // 🔥 hace el JS más difícil de leer
+    minify: 'esbuild',   // 🔥 hace el JS más difícil de leer
     terserOptions: {
       compress: {
         drop_console: true,
