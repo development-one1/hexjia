@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           <a href="#contacto" className="footer-cta">
-            Agendar conversación →
+            Agendar llamada →
           </a>
         </div>
       </div>
