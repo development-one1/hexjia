@@ -128,6 +128,20 @@
   margin-top: 10px;
 }
 
+.client {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 8px;
+  margin-bottom: 12px;
+
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+}
+
+
+
 /* =========================
    HOVER (SOFT LUXURY EFFECT)
 ========================= */
