@@ -21,6 +21,8 @@ export default function Showcase() {
                 alt={project.title}
                 className="project-img"
                 loading="lazy"
+                draggable="false"
+                onDragStart={(e) => e.preventDefault()}
               />
             )}
 
