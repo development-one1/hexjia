@@ -31,13 +31,21 @@ export default function Showcase() {
 
             <p>{project.desc}</p>
 
-            <div className="meta">{project.tech}</div>
+            <div className="meta">
+              {project.tech}
+            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-btn"
+            >
+              Ver proyecto
+            </a>
+            
           </div>
         ))}
       </div>
-
-      {/* TRUST SECTION */}
-      
     </section>
   );
 }
