@@ -69,37 +69,61 @@
 ========================= */
 
 .project {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: rgba(20,20,20,.85);
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.06);
 
-  padding: 32px;
-  min-height: 260px;
+  border-radius: 38px;
+
+  padding: 40px;
+  min-height: 280px;
+
+  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
 
-  color: #ffffff;
-
-  backdrop-filter: blur(14px);
-
-  position: relative;
   overflow: hidden;
 
-  transition: all 0.35s ease;
+  backdrop-filter: blur(18px);
 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  align-items: center;
+  transition: .35s ease;
+}
+
+.project::before,
+.project::after {
+  content: "";
+
+  position: absolute;
+
+  width: 60px;
+  height: 60px;
+
+  background: #0b0b0b;
+
+  border-radius: 50%;
+}
+
+.project::before {
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+
+.project::after {
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+
+.project:hover {
+  transform: translateY(-8px);
 }
 
 .project-btn {
+  background-color: transparent;
   cursor: pointer;
   user-select: none;
 }

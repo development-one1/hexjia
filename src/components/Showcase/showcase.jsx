@@ -32,8 +32,6 @@ export default function Showcase() {
 
             <h3>{project.title}</h3>
 
-            
-
             <p>{project.desc}</p>
 
             <div className="meta">
