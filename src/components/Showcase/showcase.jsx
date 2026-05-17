@@ -49,11 +49,11 @@ export default function Showcase() {
 
             {project.link && (
               <button
-    className="project-btn"
-    onClick={() => window.open(project.link, "_blank")}
-  >
-    Ver proyecto
-  </button>
+                  className="project-btn"
+                  onClick={() => window.open(project.link, "_blank")}
+               >   
+                Ver proyecto
+              </button>
             )}
 
           </div>
