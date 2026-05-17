@@ -48,14 +48,12 @@ export default function Showcase() {
             )}
 
             {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-btn"
-              >
-                Ver proyecto 
-              </a>
+              <button
+    className="project-btn"
+    onClick={() => window.open(project.link, "_blank")}
+  >
+    Ver proyecto
+  </button>
             )}
 
           </div>

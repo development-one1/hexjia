@@ -99,6 +99,19 @@
   align-items: center;
 }
 
+.project-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.project-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.no-preview {
+  text-decoration: none;
+}
+
 .project-img {
   width: 50%;
   height: 100%;
