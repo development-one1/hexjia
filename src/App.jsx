@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/navbar";
 import Hero from "./components/Hero/hero";
 import Features from "./components/Features/features";
 import Showcase from "./components/Showcase/showcase";
+import Testimonials from "./components/Testimonials/Testimonials";
 import Technologies from "./components/Technologies/Technologies";
 import Footer from "./components/Footer/footer";
 import Watsapp from "./components/Ws/Watsapp";
@@ -58,6 +59,7 @@ export default function App() {
       <Hero />
       <Features />
       <Showcase />
+      <Testimonials />
       <Technologies />
       <Footer />
       <Watsapp />
