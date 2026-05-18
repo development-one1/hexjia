@@ -1,4 +1,5 @@
 import "./testimonials.css";
+import workanaclient from "../../assets/workanaclient.png";
 
 export default function Testimonials() {
   return (
@@ -37,39 +38,27 @@ export default function Testimonials() {
 
         {/* Testimonio 1 */}
         <div className="testimonial-card">
-          <div className="stars">★★★★★</div>
 
-          <p className="testimonial-text">
-            Excelente experiencia trabajando con HEXJIA.
-            Comunicación clara y entregas muy organizadas.
-          </p>
-
-          <div className="testimonial-user">
-            <div className="avatar">F</div>
-            <div>
-              <h4>Fernando</h4>
-              <span>Chile · Founder</span>
+            <div className="testimonial-image">
+             <img src={workanaclient} alt="Testimonio Fernando - Chile" />
             </div>
-          </div>
-        </div>
 
-        {/* Testimonio 2 */}
-        <div className="testimonial-card">
-          <div className="stars">★★★★★</div>
+            <div className="stars">★★★★★</div>
 
-          <p className="testimonial-text">
-            El desarrollo fue estructurado y con mucha claridad.
-            Se sintió como trabajar con un socio tecnológico.
-          </p>
+            <p className="testimonial-text">
+                Excelente experiencia trabajando con HEXJIA.
+                Comunicación clara y entregas muy organizadas.
+            </p>
 
-          <div className="testimonial-user">
-            <div className="avatar">C</div>
-            <div>
-              <h4>Carlos</h4>
-              <span>México · Startup</span>
+            <div className="testimonial-user">
+                <div className="avatar">F</div>
+                <div>
+                <h4>Workana company</h4>
+                <span>Argentina · Founder</span>
+                </div>
             </div>
-          </div>
-        </div>
+            </div>
+
 
       </div>
     </section>
