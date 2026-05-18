@@ -23,9 +23,9 @@ export default function Testimonials() {
         {/* LinkedIn */}
         <div className="testimonial-card linkedin-card">
           <div className="linkedin-badge">
-            Testimonio verificado · LinkedIn
-            <div className="stars">★★★★★</div>
-          </div>
+                ✔ Testimonio verificado · LinkedIn · Chile
+                <div className="stars">★★★★★</div>
+            </div>
 
           <iframe
             src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454710291847733248"
