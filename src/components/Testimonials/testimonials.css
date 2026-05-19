@@ -94,6 +94,15 @@
   opacity: 1;
 }
 
+.stars{
+  color: orange;
+}
+
+.worka {
+    width: 110%;
+    height: 110%;
+}
+
 .quote-icon {
   font-size: 4rem;
   line-height: 1;

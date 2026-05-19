@@ -10,7 +10,7 @@ export default function Testimonials() {
         </span>
 
         <h2>
-          Empresas y emprendedores que
+          Empresas y emprendedores que confiaron
           <span> confiaron en HEXJIA</span>
         </h2>
 
@@ -40,7 +40,30 @@ export default function Testimonials() {
         <div className="testimonial-card">
 
             <div className="testimonial-image">
-             <img src={workanaclient} alt="Testimonio Fernando - Chile" />
+             <img src={workanaclient} alt="Testimonio Fernando - Chile" className="worka"/>
+            </div>
+
+            <div className="stars">★★★★★</div>
+
+            <p className="testimonial-text">
+                Excelente experiencia trabajando con HEXJIA.
+                Comunicación clara y entregas muy organizadas.
+            </p>
+
+            <div className="testimonial-user">
+                <div className="avatar">F</div>
+                <div>
+                <h4>Workana company</h4>
+                <span>Argentina · Founder</span>
+                </div>
+            </div>
+            </div>
+
+ {/* Testimonio 1 */}
+            <div className="testimonial-card">
+
+            <div className="testimonial-image">
+             <img src={workanaclient} alt="Testimonio Fernando - Chile" className="worka"/>
             </div>
 
             <div className="stars">★★★★★</div>
