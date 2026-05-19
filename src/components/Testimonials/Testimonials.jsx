@@ -11,7 +11,6 @@ export default function Testimonials() {
 
         <h2>
           Empresas y emprendedores que confiaron
-          <span> confiaron en HEXJIA</span>
         </h2>
 
         <p>
@@ -59,7 +58,7 @@ export default function Testimonials() {
             </div>
             </div>
 
- {/* Testimonio 1 */}
+      {/* Testimonio 2 */}
             <div className="testimonial-card">
 
             <div className="testimonial-image">
