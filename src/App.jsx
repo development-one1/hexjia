@@ -42,7 +42,7 @@ export default function App() {
       }
     };
 
-    document.addEventListener("keydown", blockKeys);
+    // document.addEventListener("keydown", blockKeys);
 
     return () => {
       document.removeEventListener("contextmenu", disableRightClick);
