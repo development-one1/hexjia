@@ -27,12 +27,9 @@ export default function Testimonials() {
                 <div className="stars">★★★★★</div>
             </div>
 
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454710291847733248"
-            frameBorder="0"
-            allowFullScreen
-            title="Testimonio cliente LinkedIn"
-          ></iframe>
+         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454710291847733248?collapsed=1" height="670" width="504"  allowfullscreen="" title="Publicación integrada">
+         </iframe>
+          
         </div>
 
         {/* Testimonio 1 */}

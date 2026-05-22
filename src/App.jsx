@@ -10,10 +10,12 @@ import Technologies from "./components/Technologies/Technologies";
 import Footer from "./components/Footer/footer";
 import Watsapp from "./components/Ws/Watsapp";
 
+// ✅ IMPORTA EL COMPONENTE
+import CookieBanner from "./components/CookieBanner/CookieBanner";
+
 import "./styles/global.css";
 
 export default function App() {
-
   useEffect(() => {
 
     // 🚫 Bloquear clic derecho
@@ -42,7 +44,6 @@ export default function App() {
 
     document.addEventListener("keydown", blockKeys);
 
-    // 🧠 Limpieza al desmontar
     return () => {
       document.removeEventListener("contextmenu", disableRightClick);
       document.removeEventListener("selectstart", disableSelect);
@@ -63,6 +64,9 @@ export default function App() {
       <Technologies />
       <Footer />
       <Watsapp />
+
+      {/* ✅ COOKIE BANNER */}
+      <CookieBanner />
     </>
   );
 }
