@@ -2,13 +2,13 @@ import "./technologies.css";
 import { motion } from "framer-motion";
 
 const techs = [
-  "Flutter",
-  "React",
-  "Firebase",
-  "Node.js",
-  "Inteligencia Artificial",
-  "Automatización",
-  "APIs"
+  { name: "Flutter", url: "https://flutter.dev" },
+  { name: "React", url: "https://react.dev" },
+  { name: "Firebase", url: "https://firebase.google.com" },
+  { name: "Node.js", url: "https://nodejs.org" },
+  { name: "Inteligencia Artificial", url: "https://www.ibm.com/topics/artificial-intelligence" },
+  { name: "Automatización", url: "https://en.wikipedia.org/wiki/Automation" },
+  { name: "APIs", url: "https://www.redhat.com/en/topics/api" }
 ];
 
 const container = {
@@ -72,18 +72,21 @@ export default function Technologies() {
         viewport={{ once: true }}
       >
         {techs.map((tech, index) => (
-          <motion.div
-            className="tech-card"
-            key={index}
-            variants={item}
-            whileHover={{
-              y: -6,
-              scale: 1.04,
-            }}
-          >
-            <span>{tech}</span>
-          </motion.div>
-        ))}
+                <motion.a
+                  key={index}
+                  href={tech.url}
+                  target="_blank"
+                 rel="noopener noreferrer"
+                  className="tech-card"
+                  variants={item}
+                 whileHover={{
+                    y: -6,
+                    scale: 1.04,
+                  }}
+                >
+                  <span>{tech.name}</span>
+                </motion.a>
+              ))}
       </motion.div>
     </section>
   );
