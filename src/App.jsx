@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import BackgroundNet from "./components/BackgroundNet/BackgroundNet";
 import Navbar from "./components/Navbar/navbar";
@@ -10,40 +10,35 @@ import Technologies from "./components/Technologies/Technologies";
 import Certifications from "./components/Certifications/Certifications";
 import Footer from "./components/Footer/footer";
 import AIConsultant from "./components/Ws/AIConsultant.jsx";
+import AIDiagnosticModal from "./components/Ws/AIDiagnosticModal.jsx";
 
-// ✅ IMPORTA EL COMPONENTE
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 
 import "./styles/global.css";
 
 export default function App() {
+
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
 
-    // 🚫 Bloquear clic derecho
     const disableRightClick = (e) => e.preventDefault();
     document.addEventListener("contextmenu", disableRightClick);
 
-    // 🚫 Bloquear selección de texto
     const disableSelect = (e) => e.preventDefault();
     document.addEventListener("selectstart", disableSelect);
 
-    // 🚫 Bloquear teclas de DevTools básicas
     const blockKeys = (e) => {
-      // F12
       if (e.key === "F12") e.preventDefault();
 
-      // Ctrl + Shift + I / J / C
       if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
         e.preventDefault();
       }
 
-      // Ctrl + U (ver código fuente)
       if (e.ctrlKey && e.key === "u") {
         e.preventDefault();
       }
     };
-
-    // document.addEventListener("keydown", blockKeys);
 
     return () => {
       document.removeEventListener("contextmenu", disableRightClick);
@@ -65,9 +60,15 @@ export default function App() {
       <Testimonials />
       <Technologies />
       <Footer />
-      <AIConsultant />
 
-      {/* ✅ COOKIE BANNER */}
+      {/* 🔥 BOTÓN IA */}
+      <AIConsultant onOpen={() => setOpen(true)} />
+
+      {/* 🔥 MODAL IA */}
+      {open && (
+        <AIDiagnosticModal onClose={() => setOpen(false)} />
+      )}
+
       <CookieBanner />
     </>
   );
