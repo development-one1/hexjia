@@ -9,7 +9,7 @@ import Testimonials from "./components/Testimonials/Testimonials";
 import Technologies from "./components/Technologies/Technologies";
 import Certifications from "./components/Certifications/Certifications";
 import Footer from "./components/Footer/footer";
-import Watsapp from "./components/Ws/Watsapp";
+import AIConsultant from "./components/Ws/AIConsultant.jsx";
 
 // ✅ IMPORTA EL COMPONENTE
 import CookieBanner from "./components/CookieBanner/CookieBanner";
@@ -65,7 +65,7 @@ export default function App() {
       <Testimonials />
       <Technologies />
       <Footer />
-      <Watsapp />
+      <AIConsultant />
 
       {/* ✅ COOKIE BANNER */}
       <CookieBanner />

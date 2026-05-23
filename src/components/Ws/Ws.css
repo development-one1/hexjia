@@ -1,33 +1,39 @@
-/* Ws.css */
-
-/* Contenedor flotante */
-.whatsapp-flotante {
+.ai-floating {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
 
-  z-index: 9999;
+  bottom: 22px;
+  right: 22px;
+
+  z-index: 999;
+}
+
+.ai-icon {
+  width: 58px;
+  height: 58px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-}
-  
-  /* Estilos para el ícono */
-  .whatsapp-icono-img {
-  border-radius: 50%;
-  padding: 12px;
-  background: black;
 
-  color: #083ef0;
+  border-radius: 16px;
 
-  transition: transform 0.3s ease-in-out;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+
+  color: #00d4ff;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
-  
-  /* Efecto hover: agrandar el ícono */
-  .whatsapp-icono-img:hover {
-    color: white;
-    transform: scale(1.2);
-    animation: none;
+
+.ai-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.45);
 }
-  
