@@ -9,56 +9,63 @@ export default function AIDiagnosticModal({ onClose }) {
 
   const phoneNumber = "573238733372";
 
-  // 🔒 control anti-curiosos (1 sola vez)
-  const hasUsed = sessionStorage.getItem("diagnostic_used");
+  // 🔒 evitar múltiples usos
+  const hasUsed =
+    typeof window !== "undefined"
+      ? sessionStorage.getItem("diagnostic_used")
+      : null;
 
-  if (hasUsed) {
-    return (
-      <div className="modal-box">
-        <h2>Diagnóstico ya utilizado</h2>
-        <p>Ya realizaste el diagnóstico. Contáctanos para recibir asesoría directa.</p>
+  // 💰 convertir presupuesto a valor numérico real
+  const budgetValue = {
+    "Menos $200": 200,
+    "Menos $817": 817,
+    "Menos $1.500": 1500,
+    "$867 - $1.5K": 1000,
+    "$1.150 USD": 1150,
+    "$1.5K - $5K": 3000,
+    "$5K+": 6000,
+    "Menos $600.000 COP": 150
+  }[budget] || 0;
 
-        <button className="cta" onClick={() => {
-          window.open(`https://wa.me/${phoneNumber}`, "_blank");
-        }}>
-          Ir a WhatsApp
-        </button>
-      </div>
-    );
-  }
-
-  // 🧠 filtro de calificación por servicio
+  // 🧠 filtro real de calificación
   const isQualified = () => {
-    if (goal === "App Móvil") return budget !== "Menos $1.500";
-    if (goal === "Anuncios") return budget !== "Menos $817";
-    if (goal === "Landing Page") return budget !== "Menos $200";
-    if (business === "Ecommerce") return budget !== "Menos $600.000 COP";
-    return budget !== "Menos $1.500";
+    const price = budgetValue;
+
+    // 🌐 Landing Page mínimo 867
+    if (goal === "Landing Page") return price >= 867;
+
+    // 🛒 Ecommerce mínimo 1150 total (tienda + ads)
+    if (business === "Ecommerce") return price >= 1150;
+
+    // 💻 Software / App mínimo 1800
+    if (goal === "App Móvil" || goal === "Software") return price >= 1800;
+
+    // 🧠 Emprendedor siempre entra (solo validación)
+    if (business === "Emprendedor") return true;
+
+    return price >= 1500;
   };
 
+  // 🧠 resultado del diagnóstico
   const getResult = () => {
     if (business === "Emprendedor") {
-      return "Recomendamos iniciar con un MVP o landing page de validación para probar la idea en el mercado con inversión mínima antes de escalar.";
+      return "Recomendamos iniciar con un MVP o landing page de validación antes de invertir en desarrollo completo.";
     }
 
     if (goal === "App Móvil") {
       return "Desarrollo de App Móvil iOS + Android con backend escalable.";
     }
 
-    if (goal === "Anuncios") {
-      return "Estrategia de anuncios optimizada para generar leads y conversiones.";
-    }
-
     if (goal === "Landing Page") {
       return "Landing page optimizada para conversión y captación de clientes.";
     }
 
-    if (budget === "Menos $1.500") {
-      return "Recomendamos iniciar con un MVP para validar el mercado antes de escalar.";
+    if (goal === "Anuncios") {
+      return "Estrategia de anuncios optimizada para generar leads y conversiones.";
     }
 
-    if (business === "Ecommerce" && goal === "Ventas") {
-      return "Sistema de ecommerce optimizado con conversión, CRM y remarketing.";
+    if (business === "Ecommerce") {
+      return "Ecommerce optimizado con checkout, CRM y campañas de conversión.";
     }
 
     if (goal === "Automatización") {
@@ -68,6 +75,7 @@ export default function AIDiagnosticModal({ onClose }) {
     return "Solución de software a medida para escalar tu negocio.";
   };
 
+  // 📲 WhatsApp cliente
   const handleWhatsApp = () => {
     const message = `
 Hola, acabo de hacer el diagnóstico:
@@ -86,6 +94,7 @@ Quiero agendar consultoría.
     window.open(url, "_blank");
   };
 
+  // 📊 reporte interno
   const sendInternalReport = () => {
     const internalMessage = `
 📊 NUEVO LEAD
@@ -100,20 +109,42 @@ ${getResult()}
 📌 Nivel:
 ${
   business === "Emprendedor"
-    ? "Emprendedor (idea)"
-    : budget === "Menos $1.500"
-    ? "Frío"
-    : budget === "$5K+"
+    ? "Emprendedor (validación)"
+    : budgetValue >= 3000
     ? "Alto valor"
-    : "Medio"
+    : budgetValue >= 1150
+    ? "Medio"
+    : "Frío"
 }
 
 ⚡ Acción: Contactar rápido
     `;
 
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(internalMessage)}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      internalMessage
+    )}`;
+
     window.open(url, "_blank");
   };
+
+  // 🚫 si ya usó el sistema
+  if (hasUsed) {
+    return (
+      <div className="modal-box">
+        <h2>Diagnóstico ya utilizado</h2>
+        <p>Ya realizaste el diagnóstico. Contáctanos directamente.</p>
+
+        <button
+          className="cta"
+          onClick={() =>
+            window.open(`https://wa.me/${phoneNumber}`, "_blank")
+          }
+        >
+          Ir a WhatsApp
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="modal-overlay">
@@ -127,6 +158,7 @@ ${
         {step === 0 && (
           <div>
             <p>¿Qué tipo de negocio tienes?</p>
+
             <select onChange={(e) => setBusiness(e.target.value)}>
               <option value="">Selecciona</option>
               <option>Startup</option>
@@ -145,6 +177,7 @@ ${
         {step === 1 && (
           <div>
             <p>¿Qué quieres mejorar?</p>
+
             <select onChange={(e) => setGoal(e.target.value)}>
               <option value="">Selecciona</option>
               <option>Ventas</option>
@@ -153,6 +186,7 @@ ${
               <option>App Móvil</option>
               <option>Landing Page</option>
               <option>Anuncios</option>
+              <option>Software</option>
             </select>
 
             <button onClick={() => setStep(0)}>Atrás</button>
@@ -166,22 +200,24 @@ ${
         {step === 2 && (
           <div>
             <p>Presupuesto estimado</p>
+
             <select onChange={(e) => setBudget(e.target.value)}>
               <option value="">Selecciona</option>
+
               <option>Menos $200</option>
               <option>Menos $817</option>
               <option>Menos $1.500</option>
-              <option>$1.500 - $5K</option>
+
+              <option>$867 - $1.5K</option>
+              <option>$1.150 USD</option>
+              <option>$1.5K - $5K</option>
               <option>$5K+</option>
+
               <option>Menos $600.000 COP</option>
             </select>
 
             <button onClick={() => setStep(1)}>Atrás</button>
-
-            <button
-              disabled={!budget}
-              onClick={() => setStep(3)}
-            >
+            <button disabled={!budget} onClick={() => setStep(3)}>
               Ver resultado
             </button>
           </div>
@@ -198,31 +234,37 @@ ${
                 <p className="typing">{getResult()}</p>
 
                 <div className="price-box">
-                  Proyectos desde <strong>$200 - $1.500+ USD</strong>
+                  Proyectos desde <strong>$867 - $5.000+ USD</strong>
                 </div>
 
-                <button className="cta" onClick={() => {
-                  handleWhatsApp();
-                  sendInternalReport();
-                  sessionStorage.setItem("diagnostic_used", "true");
-                }}>
+                <button
+                  className="cta"
+                  onClick={() => {
+                    handleWhatsApp();
+                    sendInternalReport();
+                    sessionStorage.setItem("diagnostic_used", "true");
+                  }}
+                >
                   Agendar consultoría →
                 </button>
               </>
             ) : (
               <>
                 <p>
-                  Tu proyecto requiere una revisión de alcance antes de generar una propuesta.
+                  Tu proyecto no cumple el presupuesto mínimo para una solución completa.
                 </p>
 
                 <div className="price-box">
-                  Podemos ayudarte con una versión MVP o validación inicial.
+                  Podemos ayudarte con un MVP o validación inicial.
                 </div>
 
-                <button className="cta" onClick={() => {
-                  sendInternalReport();
-                  sessionStorage.setItem("diagnostic_used", "true");
-                }}>
+                <button
+                  className="cta"
+                  onClick={() => {
+                    sendInternalReport();
+                    sessionStorage.setItem("diagnostic_used", "true");
+                  }}
+                >
                   Solicitar revisión →
                 </button>
               </>
