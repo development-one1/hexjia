@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           <a
-            href="https://wa.me/TUNUMERO"
+            href="https://wa.me/573238733372?text=Hola%20quiero%20información"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-cta"

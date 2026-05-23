@@ -7,7 +7,7 @@ function WhatsApp() {
   return (
     <div className="whatsapp-flotante">
       <a
-        href="https://wa.me/573238733372?text=Hola%20quiero%20información"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
       >
