@@ -1,0 +1,10 @@
+.vanta-net {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  opacity: 0.95;
+
+  /* ayuda a eliminar “gris sucio” visual */
+  filter: saturate(1.2) contrast(1.05);
+}
