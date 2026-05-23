@@ -9,9 +9,6 @@ export default function Testimonials() {
           EXPERIENCIAS REALES
         </span>
 
-        <h2>
-          Empresas que nos eligen.
-        </h2>
 
         <p>
           Clientes reales, proyectos reales y resultados construidos con confianza.

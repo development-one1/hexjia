@@ -4,11 +4,13 @@ import { certifications } from "../../data/certifications";
 export default function Certifications() {
   return (
     <section className="certifications" id="certifications">
-      
+
       <div className="cert-header">
-        <span className="tag">EXPERIENCIA TÉCNICA</span>
-        <h2>Certificaciones y especialización</h2>
-        <p>
+        <span className="cert-tag">EXPERIENCIA TÉCNICA</span>
+
+        
+
+        <p className="cert-subtitle">
           Tecnologías y áreas donde construimos sistemas reales para empresas y startups.
         </p>
       </div>
@@ -17,7 +19,6 @@ export default function Certifications() {
         {certifications.map((cert, index) => (
           <div className="cert-card" key={index}>
 
-            {/* 👇 IMAGEN RESPONSIVE */}
             <img
               src={cert.img}
               alt={cert.title}
