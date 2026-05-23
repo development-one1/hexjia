@@ -1,19 +1,18 @@
 .ai-floating {
   position: fixed;
-
   bottom: 22px;
   right: 22px;
-
   z-index: 999;
 }
 
+/* 🔥 BOTÓN PRINCIPAL */
 .ai-icon {
-  width: 58px;
-  height: 58px;
-
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px; /* 👈 separación icono-texto */
+  padding: 0 16px; /* 👈 espacio horizontal */
+
+  height: 58px;
 
   border-radius: 16px;
 
@@ -29,11 +28,31 @@
   cursor: pointer;
 
   transition: all 0.3s ease;
+
+  white-space: nowrap; /* 👈 evita que se rompa el texto */
 }
 
+/* 🔥 SOLO ICONO (cuando no hay texto) */
+.ai-icon:has(svg):not(:has(.ai-text)) {
+  width: 58px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* ✨ TEXTO */
+.ai-text {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  color: #00d4ff;
+
+  opacity: 0.9;
+}
+
+/* 🔥 HOVER */
 .ai-icon:hover {
   transform: translateY(-4px) scale(1.05);
-
   background: rgba(0, 212, 255, 0.15);
   border-color: rgba(0, 212, 255, 0.45);
 }
