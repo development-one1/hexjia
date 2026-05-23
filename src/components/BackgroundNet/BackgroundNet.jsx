@@ -22,7 +22,7 @@ export default function BackgroundNet() {
 
   // 🌐 densidad equilibrada
   points: 16,
-  maxDistance: 11,
+  maxDistance: 0,
   spacing: 16,
 
   mouseControls: true,
