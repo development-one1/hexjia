@@ -1,4 +1,5 @@
 import "../Footer/footer.css";
+import { FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -6,13 +7,14 @@ export default function Footer() {
       <div className="footer-glow"></div>
 
       <div className="footer-container">
+
+        {/* Branding */}
         <div className="footer-brand">
-          
+          <h3>HEXJIA</h3>
 
           <p className="footer-description">
-            Infraestructura digital para empresas que quieren
-            escalar con automatización, software e inteligencia
-            artificial aplicada.
+            Construimos software y sistemas digitales para negocios
+            que quieren automatizar procesos y escalar con tecnología.
           </p>
 
           <div className="footer-badges">
@@ -21,15 +23,56 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          <a href="#contacto" className="footer-cta">
-            Agendar llamada →
+          <a
+            href="https://wa.me/TUNUMERO"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-cta"
+          >
+            <FaWhatsapp />
+            Agendar reunión
           </a>
         </div>
+
+        {/* Navegación */}
+        <div className="footer-links">
+          <h4>Navegación</h4>
+
+          <a href="#servicios">Servicios</a>
+          <a href="#certifications">Certificados</a>
+          <a href="#proyectos">Proyectos</a>
+        </div>
+
+        {/* Redes */}
+        <div className="footer-social">
+          <h4>Redes</h4>
+
+          <div className="social-icons">
+            <a
+              href="https://instagram.com/TUUSUARIO"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://linkedin.com/company/TUEMPRESA"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn />
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <div className="footer-bottom">
         <p>
-          HEXJIA © 2026 — Sistemas que impulsan crecimiento real.
+          HEXJIA © 2026 — Software que impulsa negocios digitales.
         </p>
       </div>
     </footer>
