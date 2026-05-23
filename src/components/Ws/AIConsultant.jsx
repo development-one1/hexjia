@@ -11,19 +11,17 @@ function AIConsultant({ onOpen }) {
       ? sessionStorage.getItem("diagnostic_used")
       : null;
 
+  const handleClick = () => {
+    // 🚫 si ya lo usó, no hace nada (SIN MENSAJES)
+    if (hasUsed) return;
+
+    onOpen();
+  };
+
   return (
     <div className="ai-floating">
-      <button className="ai-icon" onClick={onOpen}>
-
+      <button className="ai-icon" onClick={handleClick}>
         <FontAwesomeIcon icon={faBrain} size="2x" />
-
-        {/* 🧠 SOLO mostrar texto la primera vez */}
-        {!hasUsed && (
-          <span className="ai-text">
-            Consulta aquí
-          </span>
-        )}
-
       </button>
     </div>
   );

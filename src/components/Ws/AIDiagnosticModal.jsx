@@ -9,13 +9,13 @@ export default function AIDiagnosticModal({ onClose }) {
 
   const phoneNumber = "573238733372";
 
-  // 🔒 evitar múltiples usos
+  // 🔒 Evitar múltiples usos (silencioso)
   const hasUsed =
     typeof window !== "undefined"
       ? sessionStorage.getItem("diagnostic_used")
       : null;
 
-  // 💰 convertir presupuesto a valor numérico real
+  // 💰 Convertir presupuesto a valor numérico
   const budgetValue = {
     "Menos $200": 200,
     "Menos $817": 817,
@@ -27,51 +27,35 @@ export default function AIDiagnosticModal({ onClose }) {
     "Menos $600.000 COP": 150
   }[budget] || 0;
 
-  // 🧠 filtro real de calificación
+  // 🧠 Filtro de calificación
   const isQualified = () => {
-    const price = budgetValue;
-
-    // 🌐 Landing Page mínimo 867
-    if (goal === "Landing Page") return price >= 867;
-
-    // 🛒 Ecommerce mínimo 1150 total (tienda + ads)
-    if (business === "Ecommerce") return price >= 1150;
-
-    // 💻 Software / App mínimo 1800
-    if (goal === "App Móvil" || goal === "Software") return price >= 1800;
-
-    // 🧠 Emprendedor siempre entra (solo validación)
+    if (goal === "Landing Page") return budgetValue >= 867;
+    if (business === "Ecommerce") return budgetValue >= 1150;
+    if (goal === "App Móvil" || goal === "Software") return budgetValue >= 1800;
     if (business === "Emprendedor") return true;
-
-    return price >= 1500;
+    return budgetValue >= 1500;
   };
 
-  // 🧠 resultado del diagnóstico
+  // 🧠 Resultado del diagnóstico
   const getResult = () => {
     if (business === "Emprendedor") {
-      return "Recomendamos iniciar con un MVP o landing page de validación antes de invertir en desarrollo completo.";
+      return "Te recomendamos iniciar con un MVP o landing page de validación antes de escalar.";
     }
-
     if (goal === "App Móvil") {
       return "Desarrollo de App Móvil iOS + Android con backend escalable.";
     }
-
     if (goal === "Landing Page") {
       return "Landing page optimizada para conversión y captación de clientes.";
     }
-
     if (goal === "Anuncios") {
       return "Estrategia de anuncios optimizada para generar leads y conversiones.";
     }
-
     if (business === "Ecommerce") {
-      return "Ecommerce optimizado con checkout, CRM y campañas de conversión.";
+      return "Ecommerce con checkout, CRM y campañas de conversión.";
     }
-
     if (goal === "Automatización") {
       return "Sistema de automatización para escalar sin aumentar personal.";
     }
-
     return "Solución de software a medida para escalar tu negocio.";
   };
 
@@ -86,15 +70,13 @@ Hola, acabo de hacer el diagnóstico:
 
 Resultado:
 ${getResult()}
-
-Quiero agendar consultoría.
     `;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
-  // 📊 reporte interno
+  // 📊 Reporte interno
   const sendInternalReport = () => {
     const internalMessage = `
 📊 NUEVO LEAD
@@ -108,9 +90,7 @@ ${getResult()}
 
 📌 Nivel:
 ${
-  business === "Emprendedor"
-    ? "Emprendedor (validación)"
-    : budgetValue >= 3000
+  budgetValue >= 3000
     ? "Alto valor"
     : budgetValue >= 1150
     ? "Medio"
@@ -120,30 +100,15 @@ ${
 ⚡ Acción: Contactar rápido
     `;
 
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      internalMessage
-    )}`;
-
-    window.open(url, "_blank");
+    window.open(
+      `https://wa.me/${phoneNumber}?text=${encodeURIComponent(internalMessage)}`,
+      "_blank"
+    );
   };
 
-  // 🚫 si ya usó el sistema
+  // 🚫 Bloqueo silencioso si ya usó
   if (hasUsed) {
-    return (
-      <div className="modal-box">
-        <h2>Diagnóstico ya utilizado</h2>
-        <p>Ya realizaste el diagnóstico. Contáctanos directamente.</p>
-
-        <button
-          className="cta"
-          onClick={() =>
-            window.open(`https://wa.me/${phoneNumber}`, "_blank")
-          }
-        >
-          Ir a WhatsApp
-        </button>
-      </div>
-    );
+    return null; // ❌ NO renderiza nada, ni mensajes, ni botones
   }
 
   return (
@@ -158,7 +123,6 @@ ${
         {step === 0 && (
           <div>
             <p>¿Qué tipo de negocio tienes?</p>
-
             <select onChange={(e) => setBusiness(e.target.value)}>
               <option value="">Selecciona</option>
               <option>Startup</option>
@@ -177,7 +141,6 @@ ${
         {step === 1 && (
           <div>
             <p>¿Qué quieres mejorar?</p>
-
             <select onChange={(e) => setGoal(e.target.value)}>
               <option value="">Selecciona</option>
               <option>Ventas</option>
@@ -200,19 +163,15 @@ ${
         {step === 2 && (
           <div>
             <p>Presupuesto estimado</p>
-
             <select onChange={(e) => setBudget(e.target.value)}>
               <option value="">Selecciona</option>
-
               <option>Menos $200</option>
               <option>Menos $817</option>
               <option>Menos $1.500</option>
-
               <option>$867 - $1.5K</option>
               <option>$1.150 USD</option>
               <option>$1.5K - $5K</option>
               <option>$5K+</option>
-
               <option>Menos $600.000 COP</option>
             </select>
 
@@ -229,10 +188,10 @@ ${
 
             <h3>Diagnóstico completado</h3>
 
+            <p className="typing">{getResult()}</p>
+
             {isQualified() ? (
               <>
-                <p className="typing">{getResult()}</p>
-
                 <div className="price-box">
                   Proyectos desde <strong>$867 - $5.000+ USD</strong>
                 </div>
@@ -250,10 +209,6 @@ ${
               </>
             ) : (
               <>
-                <p>
-                  Tu proyecto no cumple el presupuesto mínimo para una solución completa.
-                </p>
-
                 <div className="price-box">
                   Podemos ayudarte con un MVP o validación inicial.
                 </div>
