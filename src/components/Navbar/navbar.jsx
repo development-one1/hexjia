@@ -22,7 +22,6 @@ export default function Navbar() {
         <a href="#servicios">Servicios</a>
         <a href="#certifications">Certificados</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
       </nav>
 
     </header>

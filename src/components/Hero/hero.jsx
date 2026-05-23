@@ -17,8 +17,14 @@ export default function Hero() {
           </p>
 
         <div className="buttons">
-          <button>Ver proyectos</button>
-          <button className="outline">Contactar</button>
+          <button onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}>
+            Agendar
+          </button>
+          <button 
+            className="outline" 
+            onClick={() => document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" })}>
+               Resultados     
+          </button>
         </div>
 
       </div>
