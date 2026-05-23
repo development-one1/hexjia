@@ -54,7 +54,7 @@ export default function Technologies() {
         </span>
 
         <h2>
-          Tecnología moderna, software escalable
+          Sistemas digitales que escalan negocios.
         </h2>
 
         <p>

@@ -10,7 +10,7 @@ export default function Testimonials() {
         </span>
 
         <h2>
-          Empresas y emprendedores que confiaron
+          Empresas que nos eligen.
         </h2>
 
         <p>
