@@ -1,34 +1,48 @@
 import "../Footer/footer.css";
+import { useState } from "react";
 import { FaInstagram, FaLinkedinIn, FaVideo } from "react-icons/fa";
 
 import { loginGoogle, createEvent } from "../../googleCalendar";
 
 export default function Footer() {
 
+  // 📅 estados para fecha y hora
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
   const handleScheduleMeeting = async () => {
     try {
-      // 1. Login Google
-      loginGoogle();
+      await loginGoogle();
 
-      // 2. Esperar autorización (flujo simple frontend)
-      setTimeout(async () => {
-        const event = await createEvent({
-          title: "Reunión con HEXJIA",
-          startTime: new Date().toISOString(),
-          endTime: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
-        });
+      // ⚠️ validar que el usuario eligió fecha y hora
+      if (!date || !time) {
+        alert("Selecciona fecha y hora");
+        return;
+      }
 
-        const meetLink =
-          event?.hangoutLink ||
-          event?.conferenceData?.entryPoints?.[0]?.uri;
+      // 📅 construir fecha real del usuario
+      const start = new Date(`${date}T${time}:00`);
+      const end = new Date(start.getTime() + 60 * 60 * 1000);
 
-        if (meetLink) {
-          window.open(meetLink, "_blank");
-        } else {
-          alert("Reunión creada, pero no se generó Google Meet");
-        }
+      const event = await createEvent({
+        title: "Reunión con HEXJIA",
+        startTime: start.toISOString(),
+        endTime: end.toISOString(),
+      });
 
-      }, 2000);
+      console.log("EVENTO COMPLETO:", event);
+
+      const meetLink =
+        event?.hangoutLink ||
+        event?.conferenceData?.entryPoints?.find(
+          (e) => e.entryPointType === "video"
+        )?.uri;
+
+      if (meetLink) {
+        window.open(meetLink, "_blank");
+      } else {
+        alert("Reunión creada, pero Google Meet no se generó");
+      }
 
     } catch (err) {
       console.error("Error agendando reunión:", err);
@@ -41,7 +55,7 @@ export default function Footer() {
 
       <div className="footer-container">
 
-        {/* Branding */}
+        {/* BRAND */}
         <div className="footer-brand">
           <h3>HEXJIA</h3>
 
@@ -56,7 +70,20 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          {/* 🔥 BOTÓN NUEVO GOOGLE MEET */}
+          {/* 📅 SELECTOR DE FECHA */}
+          <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+            <input
+              type="date"
+              onChange={(e) => setDate(e.target.value)}
+            />
+
+            <input
+              type="time"
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </div>
+
+          {/* 🔥 BOTÓN */}
           <button
             onClick={handleScheduleMeeting}
             className="footer-cta"
@@ -66,7 +93,7 @@ export default function Footer() {
           </button>
         </div>
 
-        {/* Navegación */}
+        {/* LINKS */}
         <div className="footer-links">
           <h4>Navegación</h4>
 
@@ -75,26 +102,16 @@ export default function Footer() {
           <a href="#proyectos">Proyectos</a>
         </div>
 
-        {/* Redes */}
+        {/* SOCIAL */}
         <div className="footer-social">
           <h4>Redes</h4>
 
           <div className="social-icons">
-            <a
-              href="https://instagram.com/TUUSUARIO"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
+            <a href="https://instagram.com/TUUSUARIO" target="_blank">
               <FaInstagram />
             </a>
 
-            <a
-              href="https://linkedin.com/company/TUEMPRESA"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
+            <a href="https://linkedin.com/company/TUEMPRESA" target="_blank">
               <FaLinkedinIn />
             </a>
           </div>
@@ -103,9 +120,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>
-          HEXJIA © 2026 — Software que impulsa negocios digitales.
-        </p>
+        <p>HEXJIA © 2026 — Software que impulsa negocios digitales.</p>
       </div>
     </footer>
   );
