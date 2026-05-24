@@ -1,7 +1,40 @@
 import "../Footer/footer.css";
-import { FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaVideo } from "react-icons/fa";
+
+import { loginGoogle, createEvent } from "../../googleCalendar";
 
 export default function Footer() {
+
+  const handleScheduleMeeting = async () => {
+    try {
+      // 1. Login Google
+      loginGoogle();
+
+      // 2. Esperar autorización (flujo simple frontend)
+      setTimeout(async () => {
+        const event = await createEvent({
+          title: "Reunión con HEXJIA",
+          startTime: new Date().toISOString(),
+          endTime: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
+        });
+
+        const meetLink =
+          event?.hangoutLink ||
+          event?.conferenceData?.entryPoints?.[0]?.uri;
+
+        if (meetLink) {
+          window.open(meetLink, "_blank");
+        } else {
+          alert("Reunión creada, pero no se generó Google Meet");
+        }
+
+      }, 2000);
+
+    } catch (err) {
+      console.error("Error agendando reunión:", err);
+    }
+  };
+
   return (
     <footer className="footer" id="contacto">
       <div className="footer-glow"></div>
@@ -23,15 +56,14 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          <a
-            href="https://wa.me/573238733372?text=Hola%20quiero%20información"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* 🔥 BOTÓN NUEVO GOOGLE MEET */}
+          <button
+            onClick={handleScheduleMeeting}
             className="footer-cta"
           >
-            <FaWhatsapp />
+            <FaVideo />
             Agendar reunión
-          </a>
+          </button>
         </div>
 
         {/* Navegación */}
