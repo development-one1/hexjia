@@ -1,6 +1,7 @@
 import "./testimonials.css";
 import workanaclient from "../../assets/workanaclient.png";
 import mipaz from "../../assets/mipaz.jpg";
+import photoangie from "../../assets/photoangie.png";
 
 export default function Testimonials() {
   return (
@@ -28,12 +29,15 @@ export default function Testimonials() {
             <div className="stars">★★★★★</div>
 
             <p className="testimonial-text">
-                Excelente experiencia trabajando con HEXJIA.
-                Comunicación clara y entregas muy organizadas.
+                Andres me ayudó a crear mi marca. 
+                Fue muy profesional e innovador durante las sesiones creativas. 
+                Quedé muy satisfecha con el resultado de mi identidad de marca.
             </p>
 
             <div className="testimonial-user">
-                <div className="avatar">F</div>
+                <div className="avatar">
+                  <img src={photoangie} alt="Avatar" />
+                </div>
                 <div>
                 <h4>Angie Rodriguez</h4>
                 <span>Malta · Founder</span>
@@ -70,7 +74,9 @@ export default function Testimonials() {
             </p>
 
             <div className="testimonial-user">
-                <div className="avatar">F</div>
+                <div className="avatar">
+                  <img src="/assets/avatar.png" alt="Avatar" />
+                </div>
                 <div>
                 <h4>Workana company</h4>
                 <span>Argentina · Founder</span>
