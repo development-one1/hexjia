@@ -35,8 +35,8 @@ export default function Testimonials() {
             <div className="testimonial-user">
                 <div className="avatar">F</div>
                 <div>
-                <h4>Workana company</h4>
-                <span>Argentina · Founder</span>
+                <h4>Angie Rodriguez</h4>
+                <span>Malta · Founder</span>
                 </div>
             </div>
             </div>
