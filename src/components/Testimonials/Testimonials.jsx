@@ -2,6 +2,7 @@ import "./testimonials.css";
 import workanaclient from "../../assets/workanaclient.png";
 import mipaz from "../../assets/mipaz.jpg";
 import photoangie from "../../assets/photoangie.png";
+import workanalogo from "../../assets/workanalogo.png";
 
 export default function Testimonials() {
   return (
@@ -69,13 +70,14 @@ export default function Testimonials() {
             <div className="stars">★★★★★</div>
 
             <p className="testimonial-text">
-                Excelente experiencia trabajando con HEXJIA.
-                Comunicación clara y entregas muy organizadas.
+                El proyecto superó nuestras expectativas. Realmente recomendamos su trabajo, 
+                además de valorar y agradecer el compromiso con nuestro proyecto y el aporte brindado.
+                 ¡Sin dudas nos encantará volver a trabajar juntos!
             </p>
 
             <div className="testimonial-user">
                 <div className="avatar">
-                  <img src="/assets/avatar.png" alt="Avatar" />
+                  <img src={workanalogo} alt="Avatar" className="avatar-img"/>
                 </div>
                 <div>
                 <h4>Workana company</h4>

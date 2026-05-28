@@ -148,6 +148,13 @@
   font-size: 1.1rem;
 }
 
+.avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .testimonial-user h4 {
   color: white;
   margin-bottom: 4px;
