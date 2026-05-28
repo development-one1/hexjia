@@ -112,7 +112,7 @@ export default function Footer() {
               <FaInstagram />
             </a>
 
-            <a href="https://linkedin.com/company/TUEMPRESA" target="_blank">
+            <a href="https://www.linkedin.com/in/camacho-rodriguez/" target="_blank">
               <FaLinkedinIn />
             </a>
           </div>
