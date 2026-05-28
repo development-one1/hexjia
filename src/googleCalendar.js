@@ -21,7 +21,7 @@ export function initGoogleCalendar(callback) {
 }
 
 /* -----------------------------
-   CARGAR GOOGLE API (GAPI)
+   CARGAR GAPI
 ------------------------------*/
 function loadGapi() {
   const script = document.createElement("script");
@@ -48,7 +48,7 @@ function loadGapi() {
 }
 
 /* -----------------------------
-   CARGAR GOOGLE IDENTITY SERVICES (GIS)
+   CARGAR GIS
 ------------------------------*/
 function loadGis() {
   const script = document.createElement("script");
@@ -76,7 +76,7 @@ function loadGis() {
 }
 
 /* -----------------------------
-   CHECK SI TODO ESTÁ LISTO
+   READY CHECK
 ------------------------------*/
 function checkReady() {
   if (gapiInited && gisInited) {
@@ -98,7 +98,7 @@ export function loginGoogle() {
 }
 
 /* -----------------------------
-   CREAR EVENTO
+   CREAR EVENTO + GOOGLE MEET
 ------------------------------*/
 export async function createEvent({
   title = "Reunión",
@@ -108,17 +108,35 @@ export async function createEvent({
   try {
     const event = {
       summary: title,
+
       start: {
         dateTime: startTime,
       },
+
       end: {
         dateTime: endTime,
+      },
+
+      // 🔥 GOOGLE MEET
+      conferenceData: {
+        createRequest: {
+          requestId: crypto.randomUUID(),
+          conferenceSolutionKey: {
+            type: "hangoutsMeet",
+          },
+        },
       },
     };
 
     const response = await window.gapi.client.calendar.events.insert({
       calendarId: "primary",
       resource: event,
+
+      // 🔥 OBLIGATORIO PARA MEET
+      conferenceDataVersion: 1,
+
+      // 📧 ENVÍA INVITACIÓN AL CORREO //
+      sendUpdates: "all",
     });
 
     return response.result;

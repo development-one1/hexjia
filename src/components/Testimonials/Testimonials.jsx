@@ -1,5 +1,6 @@
 import "./testimonials.css";
 import workanaclient from "../../assets/workanaclient.png";
+import mipaz from "../../assets/mipaz.jpg";
 
 export default function Testimonials() {
   return (
@@ -17,23 +18,11 @@ export default function Testimonials() {
 
       <div className="testimonials-grid">
 
-        {/* LinkedIn */}
-        <div className="testimonial-card linkedin-card">
-          <div className="linkedin-badge">
-                ✔ Testimonio verificado · LinkedIn · Chile
-                <div className="stars">★★★★★</div>
-            </div>
-
-         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454710291847733248?collapsed=1" height="670" width="504"  allowfullscreen="" title="Publicación integrada">
-         </iframe>
-          
-        </div>
-
         {/* Testimonio 1 */}
         <div className="testimonial-card">
 
             <div className="testimonial-image">
-             <img src={workanaclient} alt="Testimonio Fernando - Chile" className="worka"/>
+             <img src={mipaz} alt="Testimonio Fernando - Chile" className="worka"/>
             </div>
 
             <div className="stars">★★★★★</div>
@@ -51,6 +40,20 @@ export default function Testimonials() {
                 </div>
             </div>
             </div>
+            
+        {/* LinkedIn 2 */}
+        <div className="testimonial-card linkedin-card">
+          <div className="linkedin-badge">
+                ✔ Testimonio verificado · LinkedIn · Chile
+                <div className="stars">★★★★★</div>
+            </div>
+
+         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454710291847733248?collapsed=1" height="670" width="504"  allowfullscreen="" title="Publicación integrada">
+         </iframe>
+          
+        </div>
+
+        
 
       {/* Testimonio 2 */}
             <div className="testimonial-card">

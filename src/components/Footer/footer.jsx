@@ -6,24 +6,25 @@ import { loginGoogle, createEvent } from "../../googleCalendar";
 
 export default function Footer() {
 
-  // 📅 estados para fecha y hora
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
   const handleScheduleMeeting = async () => {
     try {
+      // 🔐 1. LOGIN GOOGLE
       await loginGoogle();
 
-      // ⚠️ validar que el usuario eligió fecha y hora
+      // ⚠️ validar inputs
       if (!date || !time) {
         alert("Selecciona fecha y hora");
         return;
       }
 
-      // 📅 construir fecha real del usuario
+      // 📅 construir fecha seleccionada por usuario
       const start = new Date(`${date}T${time}:00`);
       const end = new Date(start.getTime() + 60 * 60 * 1000);
 
+      // 🚀 2. CREAR EVENTO EN GOOGLE CALENDAR
       const event = await createEvent({
         title: "Reunión con HEXJIA",
         startTime: start.toISOString(),
@@ -32,6 +33,7 @@ export default function Footer() {
 
       console.log("EVENTO COMPLETO:", event);
 
+      // 🔥 3. EXTRAER LINK DE GOOGLE MEET
       const meetLink =
         event?.hangoutLink ||
         event?.conferenceData?.entryPoints?.find(
@@ -70,7 +72,7 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          {/* 📅 SELECTOR DE FECHA */}
+          {/* 📅 INPUT FECHA Y HORA */}
           <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
             <input
               type="date"
@@ -83,7 +85,7 @@ export default function Footer() {
             />
           </div>
 
-          {/* 🔥 BOTÓN */}
+          {/* 🔥 BOTÓN AGENDAR */}
           <button
             onClick={handleScheduleMeeting}
             className="footer-cta"
@@ -96,13 +98,12 @@ export default function Footer() {
         {/* LINKS */}
         <div className="footer-links">
           <h4>Navegación</h4>
-
           <a href="#servicios">Servicios</a>
           <a href="#certifications">Certificados</a>
           <a href="#proyectos">Proyectos</a>
         </div>
 
-        {/* SOCIAL */}
+        {/* REDES */}
         <div className="footer-social">
           <h4>Redes</h4>
 
