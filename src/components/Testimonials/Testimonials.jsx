@@ -3,6 +3,7 @@ import workanaclient from "../../assets/workanaclient.png";
 import mipaz from "../../assets/mipaz.jpg";
 import photoangie from "../../assets/photoangie.png";
 import workanalogo from "../../assets/workanalogo.png";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Testimonials() {
   return (
@@ -82,6 +83,18 @@ export default function Testimonials() {
                 <div>
                 <h4>Workana company</h4>
                 <span>Argentina · Founder</span>
+
+                {/* ICONOS */}
+
+              <div className="social-icons">
+                  <a href="https://www.instagram.com/workana/" target="_blank" rel="noreferrer">
+                  <FaInstagram />
+                  </a>
+
+                  <a href="https://www.linkedin.com/company/workana/posts/?feedView=all" target="_blank" rel="noreferrer">
+                 <FaLinkedin />
+                  </a>
+                  </div>
                 </div>
             </div>
             </div>
