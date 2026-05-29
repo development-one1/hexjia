@@ -73,7 +73,7 @@ export default function Footer() {
           <h4>Redes</h4>
 
           <div className="social-icons">
-            <a href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/felipe_develop/" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
 
