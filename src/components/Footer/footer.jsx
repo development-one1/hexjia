@@ -1,55 +1,15 @@
 import "../Footer/footer.css";
-import { useState } from "react";
+
 import { FaInstagram, FaLinkedinIn, FaVideo } from "react-icons/fa";
 
-import { loginGoogle, createEvent } from "../../googleCalendar";
+
 
 export default function Footer() {
 
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  
 
-  const handleScheduleMeeting = async () => {
-    try {
-      // 🔐 1. LOGIN GOOGLE
-      await loginGoogle();
-
-      // ⚠️ validar inputs
-      if (!date || !time) {
-        alert("Selecciona fecha y hora");
-        return;
-      }
-
-      // 📅 construir fecha seleccionada por usuario
-      const start = new Date(`${date}T${time}:00`);
-      const end = new Date(start.getTime() + 60 * 60 * 1000);
-
-      // 🚀 2. CREAR EVENTO EN GOOGLE CALENDAR
-      const event = await createEvent({
-        title: "Reunión con HEXJIA",
-        startTime: start.toISOString(),
-        endTime: end.toISOString(),
-      });
-
-      console.log("EVENTO COMPLETO:", event);
-
-      // 🔥 3. EXTRAER LINK DE GOOGLE MEET
-      const meetLink =
-        event?.hangoutLink ||
-        event?.conferenceData?.entryPoints?.find(
-          (e) => e.entryPointType === "video"
-        )?.uri;
-
-      if (meetLink) {
-        window.open(meetLink, "_blank");
-      } else {
-        alert("Reunión creada, pero Google Meet no se generó");
-      }
-
-    } catch (err) {
-      console.error("Error agendando reunión:", err);
-    }
-  };
+// borrar
+  
 
   return (
     <footer className="footer" id="contacto">
@@ -72,27 +32,15 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          {/* 📅 INPUT FECHA Y HORA */}
-          <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-            <input
-              type="date"
-              onChange={(e) => setDate(e.target.value)}
-            />
-
-            <input
-              type="time"
-              onChange={(e) => setTime(e.target.value)}
-            />
-          </div>
 
           {/* 🔥 BOTÓN AGENDAR */}
-          <button
-            onClick={handleScheduleMeeting}
-            className="footer-cta"
-          >
-            <FaVideo />
-            Agendar reunión
-          </button>
+              <button
+                 onClick={() => window.open('https://calendly.com/andrescamcho6/nueva-reunion', '_blank')}
+                  className="footer-cta"
+              >
+                  <FaVideo />
+                  Agendar reunión
+              </button>
         </div>
 
         {/* LINKS */}
