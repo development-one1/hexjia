@@ -143,6 +143,36 @@
 
   background: rgba(0,212,255,0.08);
   border-color: rgba(0,212,255,0.4);
+} 
+
+/* Hacer que el popup de Calendly sea responsive */
+.calendly-popup {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  max-width: 800px !important;
+  height: 85% !important;
+  max-height: 700px !important;
+  z-index: 99999 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+/* Fondo oscuro detrás del popup */
+.calendly-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+  z-index: 99998 !important;
+}
+
+/* En móvil, ocupar casi toda la pantalla */
+@media (max-width: 768px) {
+  .calendly-popup {
+    width: 95% !important;
+    height: 90% !important;
+    border-radius: 12px !important;
+  }
 }
 
 /* ==========================

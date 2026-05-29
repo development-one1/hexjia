@@ -1,74 +1,37 @@
 import "../Footer/footer.css";
-import { FaInstagram, FaLinkedinIn} from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaVideo } from "react-icons/fa";
 import { useEffect } from "react";
 
 export default function Footer() {
   useEffect(() => {
-    // Función para cargar el widget de Calendly
-    const loadCalendlyWidget = () => {
-      // Verificar si ya existe el script para no duplicarlo
-      if (document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-        // Si ya existe, solo inicializamos el widget
-        if (window.Calendly) {
-          window.Calendly.initBadgeWidget({
-            url: "https://calendly.com/andrescamcho6/nueva-reunion",
-            text: "Agendar reunión",
-            color: "#1d1d1d",
-            textColor: "#ffffff",
-            branding: false,
-          });
-        }
-        return;
-      }
-
-      // Cargar estilos
+    // Cargar los scripts de Calendly solo una vez
+    if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
       const link = document.createElement("link");
       link.href = "https://assets.calendly.com/assets/external/widget.css";
       link.rel = "stylesheet";
       document.head.appendChild(link);
 
-      // Cargar script
       const script = document.createElement("script");
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.type = "text/javascript";
       script.async = true;
-      
       script.onload = () => {
-        // Pequeño retraso para asegurar que el script se haya ejecutado completamente
-        setTimeout(() => {
-          if (window.Calendly) {
-            window.Calendly.initBadgeWidget({
-              url: "https://calendly.com/andrescamcho6/nueva-reunion",
-              text: "Agendar",
-              color: "#1d1d1d",
-              textColor: "#ffffff",
-              branding: false,
-            });
-          } else {
-            console.warn("Calendly no se cargó correctamente");
-          }
-        }, 500);
+        // El script cargó correctamente
+        console.log("Calendly cargado");
       };
-      
-      script.onerror = () => {
-        console.error("Error al cargar el script de Calendly");
-      };
-      
       document.body.appendChild(script);
-    };
-
-    // Ejecutar la carga después de que el componente esté montado
-    loadCalendlyWidget();
-
-    // Cleanup
-    return () => {
-      const badgeWidget = document.querySelector(".calendly-badge-widget");
-      if (badgeWidget) badgeWidget.remove();
-      
-      const badgeContainer = document.querySelector(".calendly-badge-container");
-      if (badgeContainer) badgeContainer.remove();
-    };
+    }
   }, []);
+
+  // Función para abrir el popup de Calendly
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.showPopupWidget("https://calendly.com/andrescamcho6/nueva-reunion");
+    } else {
+      // Fallback: abrir en nueva pestaña si el script no cargó
+      window.open("https://calendly.com/andrescamcho6/nueva-reunion", "_blank");
+    }
+  };
 
   return (
     <footer className="footer" id="contacto">
@@ -90,8 +53,11 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-          {/* 🔥 BOTÓN MANUAL DE RESPALDO (por si el widget no carga) */}
-          
+          {/* 🔥 BOTÓN AGENDAR */}
+          <button onClick={openCalendly} className="footer-cta">
+            <FaVideo />
+            Agendar reunión
+          </button>
         </div>
 
         {/* LINKS */}
@@ -116,7 +82,6 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
       </div>
 
       <div className="footer-bottom">
