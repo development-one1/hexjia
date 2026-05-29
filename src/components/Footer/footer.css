@@ -1,61 +1,52 @@
 /* ==========================
    FOOTER PREMIUM - HEXJIA
+   Versión Optimizada y Organizada
 ========================== */
+
+/* ------------------------------------
+   1. BASE & CONTENEDORES PRINCIPALES
+------------------------------------ */
 
 .footer {
   position: relative;
   overflow: hidden;
-
   padding: 90px 10% 35px;
-
   background: transparent;
-
-  border-top: 1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
 }
-
-/* ==========================
-   GLOW EFFECT
-========================== */
-
-.footer-glow {
-  position: absolute;
-
-  width: 520px;
-  height: 520px;
-
-  right: -220px;
-  bottom: -250px;
-
-  background: #00d4ff;
-
-  filter: blur(180px);
-  opacity: 0.08;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-}
-
-/* ==========================
-   CONTAINER
-========================== */
 
 .footer-container {
   position: relative;
   z-index: 2;
-
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-
   gap: 60px;
   align-items: start;
 }
 
-/* ==========================
-   BRAND
-========================== */
+/* ------------------------------------
+   2. GLOW EFFECT (FONDO DECORATIVO)
+------------------------------------ */
+
+.footer-glow {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 520px;
+  max-height: 520px;
+  right: -20%;
+  bottom: -20%;
+  background: #00d4ff;
+  filter: blur(180px);
+  opacity: 0.08;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ------------------------------------
+   3. BRAND & DESCRIPCIÓN
+------------------------------------ */
 
 .footer-brand h3 {
   color: white;
@@ -64,89 +55,82 @@
 }
 
 .footer-description {
-  color: rgba(255,255,255,0.72);
-
+  color: rgba(255, 255, 255, 0.72);
   font-size: 1rem;
   line-height: 1.9;
-
   max-width: 520px;
 }
 
-/* ==========================
-   BADGES
-========================== */
+/* ------------------------------------
+   4. BADGES (TECNOLOGÍAS / SERVICIOS)
+------------------------------------ */
 
 .footer-badges {
   display: flex;
   flex-wrap: wrap;
-
   gap: 12px;
-
   margin-top: 28px;
 }
 
 .footer-badges span {
   padding: 10px 18px;
-
   border-radius: 999px;
-
-  background: rgba(255,255,255,0.04);
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  color: rgba(255,255,255,0.82);
-
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.9rem;
-
   backdrop-filter: blur(10px);
-
   transition: all 0.25s ease;
 }
 
 .footer-badges span:hover {
   transform: translateY(-2px);
-
-  border-color: rgba(0,212,255,0.25);
+  border-color: rgba(0, 212, 255, 0.25);
 }
 
-/* ==========================
-   CTA
-========================== */
+/* ------------------------------------
+   5. BOTÓN CTA (AGENDAR REUNIÓN)
+------------------------------------ */
 
 .footer-cta {
   margin-top: 30px;
-
   width: fit-content;
-
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   padding: 14px 24px;
-
   border-radius: 999px;
-
-  border: 1px solid rgba(0,212,255,0.22);
-
-  background: rgba(0,212,255,0.04);
-
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  background: rgba(0, 212, 255, 0.04);
   color: #00d4ff;
-
   text-decoration: none;
   font-weight: 600;
-
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .footer-cta:hover {
   transform: translateY(-3px);
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.4);
+}
 
-  background: rgba(0,212,255,0.08);
-  border-color: rgba(0,212,255,0.4);
-} 
+.footer-cta:active {
+  transform: translateY(2px);
+  transition: transform 0.05s ease;
+}
 
-/* Hacer que el popup de Calendly sea responsive */
-.calendly-popup {
+.footer-cta:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 4px;
+}
+
+/* ------------------------------------
+   6. CALENDLY POPUP (RESPONSIVE)
+------------------------------------ */
+
+/* Clases reales que usa Calendly */
+.calendly-popup-widget {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
@@ -160,24 +144,23 @@
   overflow: hidden !important;
 }
 
-/* Fondo oscuro detrás del popup */
 .calendly-overlay {
-  background: rgba(0, 0, 0, 0.7) !important;
+  background: rgba(0, 0, 0, 0.75) !important;
   z-index: 99998 !important;
 }
 
-/* En móvil, ocupar casi toda la pantalla */
+/* Móvil */
 @media (max-width: 768px) {
-  .calendly-popup {
+  .calendly-popup-widget {
     width: 95% !important;
     height: 90% !important;
     border-radius: 12px !important;
   }
 }
 
-/* ==========================
-   LINKS + SOCIAL
-========================== */
+/* ------------------------------------
+   7. LINKS DE NAVEGACIÓN
+------------------------------------ */
 
 .footer-links,
 .footer-social {
@@ -188,19 +171,15 @@
 .footer-links h4,
 .footer-social h4 {
   color: white;
-
   font-size: 1rem;
   margin-bottom: 18px;
 }
 
 .footer-links a,
 .footer-social a {
-  color: rgba(255,255,255,0.68);
-
+  color: rgba(255, 255, 255, 0.68);
   text-decoration: none;
-
   margin-bottom: 14px;
-
   transition: 0.25s ease;
 }
 
@@ -209,9 +188,9 @@
   color: #00d4ff;
 }
 
-/* ==========================
-   SOCIAL ICONS
-========================== */
+/* ------------------------------------
+   8. ICONOS SOCIALES
+------------------------------------ */
 
 .social-icons {
   display: flex;
@@ -221,59 +200,52 @@
 .social-icons a {
   width: 46px;
   height: 46px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 14px;
-
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: white;
   font-size: 1.1rem;
-
   transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
   transform: translateY(-4px);
-
-  background: rgba(0,212,255,0.08);
-  border-color: rgba(0,212,255,0.18);
-
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.18);
   color: #00d4ff;
 }
 
-/* ==========================
-   BOTTOM
-========================== */
+.social-icons a:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}
+
+/* ------------------------------------
+   9. FOOTER BOTTOM (COPYRIGHT)
+------------------------------------ */
 
 .footer-bottom {
   position: relative;
   z-index: 2;
-
   margin-top: 70px;
   padding-top: 28px;
-
-  border-top: 1px solid rgba(255,255,255,0.08);
-
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
 .footer-bottom p {
-  color: rgba(255,255,255,0.46);
-
+  color: rgba(255, 255, 255, 0.46);
   font-size: 0.9rem;
 }
 
-/* ==========================
-   TABLET
-========================== */
+/* ------------------------------------
+   10. RESPONSIVE: TABLET (max-width: 992px)
+------------------------------------ */
 
 @media (max-width: 992px) {
-
   .footer {
     padding: 80px 8% 30px;
   }
@@ -281,11 +253,12 @@
   .footer-container {
     grid-template-columns: 1fr;
     gap: 50px;
-
     text-align: center;
   }
 
   .footer-brand {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
@@ -302,14 +275,19 @@
   }
 }
 
-/* ==========================
-   MOBILE
-========================== */
+/* ------------------------------------
+   11. RESPONSIVE: MÓVIL (max-width: 768px)
+------------------------------------ */
 
 @media (max-width: 768px) {
-
   .footer {
     padding: 70px 7% 28px;
+    backdrop-filter: blur(6px);
+  }
+
+  .footer-glow {
+    filter: blur(120px);
+    opacity: 0.05;
   }
 
   .footer-description {
