@@ -1,22 +1,80 @@
 import "../Footer/footer.css";
-
-import { FaInstagram, FaLinkedinIn, FaVideo } from "react-icons/fa";
-
-
+import { FaInstagram, FaLinkedinIn} from "react-icons/fa";
+import { useEffect } from "react";
 
 export default function Footer() {
+  useEffect(() => {
+    // Función para cargar el widget de Calendly
+    const loadCalendlyWidget = () => {
+      // Verificar si ya existe el script para no duplicarlo
+      if (document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+        // Si ya existe, solo inicializamos el widget
+        if (window.Calendly) {
+          window.Calendly.initBadgeWidget({
+            url: "https://calendly.com/andrescamcho6/nueva-reunion",
+            text: "Agendar reunión",
+            color: "#1d1d1d",
+            textColor: "#ffffff",
+            branding: false,
+          });
+        }
+        return;
+      }
 
-  
+      // Cargar estilos
+      const link = document.createElement("link");
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
 
-// borrar
-  
+      // Cargar script
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.type = "text/javascript";
+      script.async = true;
+      
+      script.onload = () => {
+        // Pequeño retraso para asegurar que el script se haya ejecutado completamente
+        setTimeout(() => {
+          if (window.Calendly) {
+            window.Calendly.initBadgeWidget({
+              url: "https://calendly.com/andrescamcho6/nueva-reunion",
+              text: "Agendar reunión",
+              color: "#1d1d1d",
+              textColor: "#ffffff",
+              branding: false,
+            });
+          } else {
+            console.warn("Calendly no se cargó correctamente");
+          }
+        }, 500);
+      };
+      
+      script.onerror = () => {
+        console.error("Error al cargar el script de Calendly");
+      };
+      
+      document.body.appendChild(script);
+    };
+
+    // Ejecutar la carga después de que el componente esté montado
+    loadCalendlyWidget();
+
+    // Cleanup
+    return () => {
+      const badgeWidget = document.querySelector(".calendly-badge-widget");
+      if (badgeWidget) badgeWidget.remove();
+      
+      const badgeContainer = document.querySelector(".calendly-badge-container");
+      if (badgeContainer) badgeContainer.remove();
+    };
+  }, []);
 
   return (
     <footer className="footer" id="contacto">
       <div className="footer-glow"></div>
 
       <div className="footer-container">
-
         {/* BRAND */}
         <div className="footer-brand">
           <h3>HEXJIA</h3>
@@ -32,15 +90,8 @@ export default function Footer() {
             <span>IA aplicada</span>
           </div>
 
-
-          {/* 🔥 BOTÓN AGENDAR */}
-              <button
-                 onClick={() => window.open('https://calendly.com/andrescamcho6/nueva-reunion', '_blank')}
-                  className="footer-cta"
-              >
-                  <FaVideo />
-                  Agendar reunión
-              </button>
+          {/* 🔥 BOTÓN MANUAL DE RESPALDO (por si el widget no carga) */}
+          
         </div>
 
         {/* LINKS */}
@@ -56,11 +107,11 @@ export default function Footer() {
           <h4>Redes</h4>
 
           <div className="social-icons">
-            <a href="https://instagram.com/TUUSUARIO" target="_blank">
+            <a href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
 
-            <a href="https://www.linkedin.com/in/camacho-rodriguez/" target="_blank">
+            <a href="https://www.linkedin.com/in/camacho-rodriguez/" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn />
             </a>
           </div>
