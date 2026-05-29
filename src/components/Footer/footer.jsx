@@ -39,7 +39,7 @@ export default function Footer() {
           if (window.Calendly) {
             window.Calendly.initBadgeWidget({
               url: "https://calendly.com/andrescamcho6/nueva-reunion",
-              text: "Agendar reunión",
+              text: "Agendar",
               color: "#1d1d1d",
               textColor: "#ffffff",
               branding: false,
