@@ -341,7 +341,7 @@
 .modal-buttons button:last-child:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 14px 35px rgba(255,123,0,0.34);
+    white;
 }
 
 /* ===== ANIMACIÓN ===== */
