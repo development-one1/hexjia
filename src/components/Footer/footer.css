@@ -223,6 +223,155 @@
   outline-offset: 2px;
 }
 
+/* Modal y filtro */
+/* ===== MODAL OVERLAY ===== */
+.lead-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+/* ===== CARD ===== */
+.lead-card {
+  width: 100%;
+  max-width: 520px;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 38px;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255,255,255,0.04);
+  animation: modalFade 0.25s ease;
+}
+
+/* ===== TITULOS ===== */
+.lead-card h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.lead-card p {
+  color: rgba(255,255,255,0.72);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ===== INPUTS / SELECT ===== */
+.lead-card select {
+  width: 100%;
+  background: #151515;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #ffffff;
+  padding: 16px 18px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+/* Texto visible */
+.lead-card select option {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+/* Hover / Focus */
+.lead-card select:hover {
+  border-color: rgba(255,255,255,0.25);
+}
+
+
+
+/* ===== BOTONES ===== */
+.modal-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* Botón cerrar */
+.modal-buttons button:first-child {
+  background: #1a1a1a;
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.modal-buttons button:first-child:hover {
+  background: #232323;
+}
+
+/* CTA principal */
+.modal-buttons button:last-child {
+  background: linear-gradient(
+    135deg,
+    #09003d,
+    #09003d
+  );
+  color: #fff;
+  font-weight: 700;
+  box-shadow:
+    0 10px 30px rgb(10, 10, 10);
+}
+
+.modal-buttons button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 35px rgba(255,123,0,0.34);
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .lead-card {
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+
+  .lead-card h2 {
+    font-size: 1.7rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+}
 /* ------------------------------------
    9. FOOTER BOTTOM (COPYRIGHT)
 ------------------------------------ */
