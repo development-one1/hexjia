@@ -4,7 +4,10 @@ import {
   FaLinkedinIn,
   FaVideo,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
 export default function Footer() {
   const [showModal, setShowModal] =
@@ -26,18 +29,26 @@ export default function Footer() {
 
     if (!scriptExists) {
       const link =
-        document.createElement("link");
+        document.createElement(
+          "link"
+        );
 
       link.href =
         "https://assets.calendly.com/assets/external/widget.css";
       link.rel = "stylesheet";
-      document.head.appendChild(link);
+
+      document.head.appendChild(
+        link
+      );
 
       const script =
-        document.createElement("script");
+        document.createElement(
+          "script"
+        );
 
       script.src =
         "https://assets.calendly.com/assets/external/widget.js";
+
       script.async = true;
 
       script.onload = () => {
@@ -46,7 +57,9 @@ export default function Footer() {
         );
       };
 
-      document.body.appendChild(script);
+      document.body.appendChild(
+        script
+      );
     }
   }, []);
 
@@ -67,7 +80,7 @@ export default function Footer() {
 
     const mediumBudget =
       formData.budget ===
-      "1000-3000";
+      "1500-3000";
 
     const notSureBudget =
       formData.budget ===
@@ -85,8 +98,12 @@ export default function Footer() {
       formData.business ===
       "validated";
 
+    // ✅ Ahora "Este mes" también agenda
     const urgent =
-      formData.urgency === "now";
+      formData.urgency ===
+        "now" ||
+      formData.urgency ===
+        "month";
 
     // Clientes ideales
     if (
@@ -142,19 +159,22 @@ export default function Footer() {
 
           <p className="footer-description">
             Construimos software y
-            sistemas digitales para
-            negocios que quieren
-            automatizar procesos y
-            escalar con tecnología.
+            sistemas digitales
+            para negocios que
+            quieren automatizar
+            procesos y escalar
+            con tecnología.
           </p>
 
           <div className="footer-badges">
             <span>
               Software a medida
             </span>
+
             <span>
               Automatización
             </span>
+
             <span>
               IA aplicada
             </span>
@@ -221,9 +241,10 @@ export default function Footer() {
             </h2>
 
             <p>
-              Queremos entender tu
-              proyecto para darte
-              una mejor asesoría.
+              Queremos entender
+              tu proyecto para
+              darte una mejor
+              asesoría.
             </p>
 
             {/* Tipo de proyecto */}
@@ -277,12 +298,12 @@ export default function Footer() {
                 estimado
               </option>
 
-              <option value="0-1.000">
+              <option value="0-1000">
                 Menos de
                 $1,000 USD
               </option>
 
-              <option value="1.500-3000">
+              <option value="1500-3000">
                 $1,500 -
                 $3,000 USD
               </option>
@@ -297,8 +318,7 @@ export default function Footer() {
               </option>
 
               <option value="not-sure">
-                No estoy
-                seguro
+                No estoy seguro
               </option>
             </select>
 
@@ -336,6 +356,11 @@ export default function Footer() {
                 formData.urgency
               }
             >
+              <option value="">
+                ¿Cuándo quieres
+                iniciar?
+              </option>
+
               <option value="now">
                 Inmediatamente
               </option>
@@ -383,4 +408,3 @@ export default function Footer() {
     </footer>
   );
 }
-
