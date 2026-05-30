@@ -65,7 +65,7 @@ export default function Footer() {
           <h4>Navegación</h4>
           <a href="#servicios">Servicios</a>
           <a href="#certifications">Certificados</a>
-          <a href="#proyectos">Proyectos</a>
+          <a href="#">Trabaja con nosotros</a>
         </div>
 
         {/* REDES */}
