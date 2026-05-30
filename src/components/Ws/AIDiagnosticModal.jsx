@@ -20,8 +20,6 @@ export default function AIDiagnosticModal({ onClose }) {
     "Menos $200": 200,
     "Menos $817": 817,
     "Menos $1.500": 1500,
-    "$867 - $1.5K": 1000,
-    "$1.150 USD": 1150,
     "$1.5K - $5K": 3000,
     "$5K+": 6000,
     "Menos $600.000 COP": 150
