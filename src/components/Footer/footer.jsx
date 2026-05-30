@@ -277,12 +277,12 @@ export default function Footer() {
                 estimado
               </option>
 
-              <option value="0-1000">
+              <option value="0-1.000">
                 Menos de
                 $1,000 USD
               </option>
 
-              <option value="1000-3000">
+              <option value="1.500-3000">
                 $1,500 -
                 $3,000 USD
               </option>
