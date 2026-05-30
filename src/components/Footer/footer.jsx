@@ -283,7 +283,7 @@ export default function Footer() {
               </option>
 
               <option value="1000-3000">
-                $1,000 -
+                $1,500 -
                 $3,000 USD
               </option>
 
