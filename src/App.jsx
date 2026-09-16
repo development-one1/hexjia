@@ -67,6 +67,8 @@ export default function App() {
       <Technologies />
       <Footer />
 
+      <Escala />
+
       {/* 🔥 BOTÓN IA */}
       <AIConsultant onOpen={() => setOpen(true)} />
 
