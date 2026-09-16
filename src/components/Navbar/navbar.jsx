@@ -14,7 +14,7 @@ export default function Navbar() {
         />
         <span className="logo-text">
           <span className="exx">HEX</span>
-          <span className="jia">JIA</span>
+          <span className="jia">JIA </span>
         </span>
       </a>
 

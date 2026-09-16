@@ -15,6 +15,7 @@ import AIDiagnosticModal from "./components/Ws/AIDiagnosticModal.jsx";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 
 import "./styles/global.css";
+import Escala from "./pages/Escala.jsx";
 
 export default function App() {
 
@@ -47,6 +48,11 @@ export default function App() {
     };
 
   }, []);
+
+  // 🔥 LANDING EXCLUSIVA PARA ANUNCIOS
+  if (window.location.pathname === "/hexjia/escala/") {
+    return <Escala />;
+  }
 
   return (
     <>
