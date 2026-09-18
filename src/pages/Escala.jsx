@@ -52,7 +52,7 @@ export default function Escala() {
 
 
             <a
-              href="#contacto"
+              href="https://wa.link/b0yfh6"
               className="contact-button"
             >
               <span>
