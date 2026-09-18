@@ -1,4 +1,4 @@
-import{r as O,g as Zy,j as R,R as ai,E as Yu,c as mM}from"./Escala-BGSFN7Qc.js";/**
+import{r as O,g as Zy,j as R,R as ai,E as Yu,c as mM}from"./Escala-DvS14szR.js";/**
  * react-router v7.18.4
  *
  * Copyright (c) Remix Software Inc.
